@@ -68,30 +68,38 @@ using UnityEngine;
 using UnityEngine.UI;
 public class EnemyhpBar : MonoBehaviour
 {
-    [SerializeField] GameObject prfHpBar;
+    [SerializeField] Slider prfHpBar;
     //[SerializeField] Slider hpbar;
     List<Transform> m_enemyList = new List<Transform>();
-    List<GameObject> m_hpBarList = new List<GameObject>();
+    List<Slider> m_hpBarList = new List<Slider>();
     Camera m_cam = null;
-
-    private float maxhp = 100;
-    private float nowhp = 100;
+    [SerializeField] int enemy_num;
+    GameObject[] t_objects;
 
     //private void HandleHp()
     //{
-    //    hpbar.value = (float)nowhp / (float)maxhp;
-    //}
+    //    for (int i = 0; i < t_objects.Length; i++)\
+    //        Enemy enemy = GameObject.Find("m_nowhp").GetComponent<Enemy>();
 
+    //        m_hpBarList[i].value = (float)Enemy.m_nowhp / (float)Enemy.m_maxhp;
+
+    //}
     void Start()
     {
-        //hpbar.value = (float)nowhp / (float)maxhp;
+        //for (int i = 0; i < t_objects.Length; i++)
+        //{
+        //    maxhp[i] = 100;
+        //    nowhp[i] = 100;
+        //}
         m_cam = Camera.main;
-        GameObject[] t_objects = GameObject.FindGameObjectsWithTag("Enemy");
+        t_objects = GameObject.FindGameObjectsWithTag("Enemy");
+
         for (int i = 0; i < t_objects.Length; i++)
         {
             m_enemyList.Add(t_objects[i].transform);
-            GameObject t_hpbar = Instantiate(prfHpBar, t_objects[i].transform.position, Quaternion.identity, transform);
+            Slider t_hpbar = Instantiate(prfHpBar, t_objects[i].transform.position, Quaternion.identity, transform);
             m_hpBarList.Add(t_hpbar);
+            //m_hpBarList[i].value = (float)nowhp[i] / (float)maxhp[i];
         }
 
     }
@@ -99,11 +107,11 @@ public class EnemyhpBar : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            nowhp -= 10;
-        }
-        //HandleHp();
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    nowhp -= 10;
+        //}
+        
         for (int i = 0; i < m_enemyList.Count; i++)
         {
             m_hpBarList[i].transform.position = m_cam.WorldToScreenPoint(m_enemyList[i].position + new Vector3(0, 0.5f, 0));
