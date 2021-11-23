@@ -5,21 +5,19 @@ using UnityEngine;
 public class O_move : MonoBehaviour
 {
     public float speed;
-    float speed_in;
-    bool area = false;
-    Collider2D collider;
+    float speed_init;
+    bool area; //영영안에 상대가 있는지 
     // Start is called before the first frame update
     void Start()
     {
-        speed_in = speed;
+        area = false;
+        speed_init = speed;
     }
-
     // Update is called once per frame
     void Update()
-    {
-        transform.Translate(Vector2.right * speed * Time.deltaTime * 0.1F);
+    {       
+        transform.Translate(Vector3.right * speed * Time.deltaTime * 0.1F);
     }
-
     private void FixedUpdate()
     {
         if (area == true)
@@ -28,7 +26,7 @@ public class O_move : MonoBehaviour
         }
         if (area == false)
         {
-            speed = speed_in;
+            speed = speed_init;
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -38,30 +36,12 @@ public class O_move : MonoBehaviour
             area = true;
             Debug.LogError("충돌");
         }
-        if (collision.gameObject.tag.CompareTo("our") == 0)
-        {
-            if (speed != 0F)
-            {
-                collision.collider.isTrigger = true;
-            }
-        }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag.CompareTo("enemy") == 0)
+        if (collision.gameObject.tag.CompareTo("emney") == 0)
         {
             area = false;
-        }
-        if (collision.gameObject.tag.CompareTo("our") == 0)
-        {
-            collision.collider.isTrigger = false;
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag.CompareTo("enemy") == 0)
-        {
-            collider.isTrigger = false;
         }
     }
 }
