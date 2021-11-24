@@ -34,7 +34,14 @@ public class E_move : MonoBehaviour
         if (collision.gameObject.tag.CompareTo("our") == 0)
         {
             area = true;
-            Debug.LogError("충돌");
+            //Debug.LogError("충돌");
+        }
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag.CompareTo("our") == 0)
+        {
+            area = true;
         }
     }
     private void OnCollisionExit2D(Collision2D collision)

@@ -354,7 +354,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1761189866715896452, guid: 001d15c1df9e0f7479c65eb8e11e6ae7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1761189866715896454, guid: 001d15c1df9e0f7479c65eb8e11e6ae7, type: 3}
       propertyPath: m_Color.b
@@ -374,7 +374,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1761189866715896455, guid: 001d15c1df9e0f7479c65eb8e11e6ae7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1761189866715896455, guid: 001d15c1df9e0f7479c65eb8e11e6ae7, type: 3}
       propertyPath: m_LocalPosition.y

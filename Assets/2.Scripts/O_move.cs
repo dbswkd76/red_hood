@@ -37,6 +37,13 @@ public class O_move : MonoBehaviour
             Debug.LogError("Ãæµ¹");
         }
     }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag.CompareTo("enemy") == 0)
+        {
+            area = true;
+        }
+    } 
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.tag.CompareTo("emney") == 0)
