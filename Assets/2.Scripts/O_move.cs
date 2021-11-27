@@ -6,7 +6,7 @@ public class O_move : MonoBehaviour
 {
     public float speed;
     float speed_init;
-    bool area; //영영안에 상대가 있는지 
+    bool area; //영역안에 상대가 있는지
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +15,7 @@ public class O_move : MonoBehaviour
     }
     // Update is called once per frame
     void Update()
-    {       
+    {
         transform.Translate(Vector3.right * speed * Time.deltaTime * 0.1F);
     }
     private void FixedUpdate()
@@ -34,7 +34,7 @@ public class O_move : MonoBehaviour
         if (collision.gameObject.tag.CompareTo("enemy") == 0)
         {
             area = true;
-            Debug.LogError("충돌");
+            //Debug.LogError("충돌");
         }
     }
     private void OnCollisionStay2D(Collision2D collision)
@@ -43,10 +43,10 @@ public class O_move : MonoBehaviour
         {
             area = true;
         }
-    } 
+    }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag.CompareTo("emney") == 0)
+        if (collision.gameObject.tag.CompareTo("enemy") == 0)
         {
             area = false;
         }
