@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     //GameObject[] t_objects;
     Animator anim;
     public AudioSource wolf_die;
+    public AudioSource hit_sound;
     //public AudioSource howling;
     public List<Transform> obj;
     public List<GameObject> hp_bar;
@@ -30,15 +31,21 @@ public class Enemy : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
-
-            m_nowhp -= 10;
-            Debug.Log(m_nowhp);
-            
-            if (m_nowhp <= 0) // Àû »ç¸Á
+            if (m_nowhp > 0)
             {
-                Destroy(gameObject);
-                Destroy(HpBar.gameObject);
+                m_nowhp -= 10;
+                hit_sound.Play();
+                Debug.Log(m_nowhp);
             }
+            //if (m_nowhp <= 0) // Àû »ç¸Á
+            //{
+            //    anim.SetBool("dead", true);
+            //    wolf_die.Play();
+            //    Invoke("DieDestroyAfter", 0.5f);
+            //    Destroy(HpBar.gameObject);
+            //}          
+
+
 
         }
     }
@@ -90,7 +97,6 @@ public class Enemy : MonoBehaviour
             wolf_die.Play();
             Invoke("DieDestroyAfter", 1f);
             Destroy(HpBar.gameObject);
-
         }
     }
     void DieDestroyAfter()
