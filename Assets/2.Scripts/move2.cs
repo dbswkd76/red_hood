@@ -2,41 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class move2 : MonoBehaviour
+public class Move2 : MonoBehaviour
 {
     // Start is called before the first frame update
     public float myspeed;
     float myspeedinit;
-    GameObject enemy;
+    GameObject Enemy;
+    GameObject Our;
     bool area;
     Vector3 e_position;
-    Vector3 my_position;
+    Vector3 o_position;
+    E_move e_move = GameObject.Find("enemy").GetComponent<E_move>();
     void Start()
     {
         myspeedinit = myspeed;
         area = false;
-        enemy = GameObject.FindGameObjectWithTag("enemy");
-        e_position = enemy.gameObject.transform.position;
-        my_position = this.gameObject.transform.position;
-    }
+        Enemy = GameObject.FindGameObjectWithTag("enemy");
+        Our = GameObject.FindGameObjectWithTag("our");
+        e_position = Enemy.gameObject.transform.position;
+        o_position = this.gameObject.transform.position;
+        }
 
     // Update is called once per frame
     void Update()
     {
-        if (area == false)
-        {
-            transform.Translate(Vector2.right * myspeed * Time.deltaTime * 0.1F);
-        }
-         
+        transform.Translate(Vector2.right * myspeed * Time.deltaTime * 0.1F);
     }
 
     private void FixedUpdate()
     {
-        float e_pos_x = e_position.x;
-        float my_pos_x = my_position.x;
-        if (e_pos_x - my_pos_x <= 0.5F)
+        double e_pos_x = 5.0F - e_move.speed * Time.deltaTime * 0.1F;
+        double o_pos_x = myspeed * Time.deltaTime * 0.1F;
+        if (e_pos_x - o_pos_x <= 0.5 )
         {
+            myspeed = 0;
             area = true;
+            Debug.LogWarning("¸¸³²");
         }
         else area = false;
     }

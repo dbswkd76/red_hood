@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/1.Scene/enemy/HPBAR.prefab.meta
+guid: 6bbca98810f162a4fb5a1c73f4e81cfc
+PrefabImporter:
+=======
 guid: a44a2825fbbe446a4ac742fcacc3da89
 DefaultImporter:
+>>>>>>> 대희:Assets/5.Asset/normal_ui_set A/무제-2.ai.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
