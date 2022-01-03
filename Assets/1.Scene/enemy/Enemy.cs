@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
-    public int m_nowhp;
-    public int m_maxhp;
-    public int m_speed;
-    public int m_damage;
+    [SerializeField] int m_nowhp;
+    [SerializeField] int m_maxhp;
+    //[SerializeField] int m_speed;
+    [SerializeField] int m_damage;
     private bool isAlive;
     [SerializeField] Slider HpBar;
     //List<Transform> m_enemyList = new List<Transform>();
@@ -21,6 +21,17 @@ public class Enemy : MonoBehaviour
     public List<Transform> obj;
     public List<GameObject> hp_bar;
     Camera camera;
+    SpriteRenderer spriteRenderer;
+    Rigidbody2D rigid;
+    bool isHit = false;
+
+    private void SetEnemyStat(int maxhp, int damage)
+    {
+        m_nowhp = maxhp;
+        m_maxhp = maxhp;
+        m_damage = damage;
+    }
+
     private void HandleHp()
     {
         
@@ -33,28 +44,57 @@ public class Enemy : MonoBehaviour
         {
             if (m_nowhp > 0)
             {
-                m_nowhp -= 10;
-                hit_sound.Play();
-                Debug.Log(m_nowhp);
+                anim.SetTrigger("attack");
+                rigid.velocity = new Vector2(1, rigid.velocity.y);
+                EnemyDamaged();               
             }
-            //if (m_nowhp <= 0) // 적 사망
-            //{
-            //    anim.SetBool("dead", true);
-            //    wolf_die.Play();
-            //    Invoke("DieDestroyAfter", 0.5f);
-            //    Destroy(HpBar.gameObject);
-            //}          
-
-
-
         }
     }
+    void EnemyDamaged()
+    {
+        isHit = true;
+        m_nowhp -= 10;
+        hit_sound.Play();
+        Debug.Log("맞았음");
+        //anim.SetTrigger("hit");
+        rigid.AddForce(new Vector2(2, 3), ForceMode2D.Impulse);
+        spriteRenderer.color = new Color(1, 1, 1, 0.6f);
+        gameObject.layer = 7;
+        Invoke("isHitchange", 1f);
+        Invoke("OffDamaged", 1.5f);
+    }
+    void isHitchange()
+    {
+        isHit = false;
+    }
+    void OffDamaged()
+    {
+        isHit = false;
+        gameObject.layer = 6;
+        spriteRenderer.color = new Color(1, 1, 1, 1);
+        rigid.velocity = new Vector2(-1, rigid.velocity.y); //단순 왼쪽방향 이동   
+        //anim.SetBool("hit", false);
+    }
+   
     void Awake()
     {
         anim = GetComponent<Animator>();
+        rigid = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        
     }
+    
+
     void Start()
     {
+        if (name.Equals("white"))
+        {
+            SetEnemyStat(20, 5);
+        }
+        if (name.Equals("black"))
+        {
+            SetEnemyStat(50, 5);
+        }
         camera = Camera.main;
         for (int i = 0; i < obj.Count; i++)
         {
@@ -77,10 +117,7 @@ public class Enemy : MonoBehaviour
     {
         if (m_nowhp <= 0)
             isAlive = false;
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            m_nowhp -= 10;
-        }
+        
         HandleHp();
         //for (int i = 0; i < m_enemyList.Count; i++)
         //{
@@ -98,11 +135,16 @@ public class Enemy : MonoBehaviour
             Invoke("DieDestroyAfter", 1f);
             Destroy(HpBar.gameObject);
         }
+        
+    }
+    void FixedUpdate()
+    {
+        if (m_nowhp > 0 && isHit == false)
+            rigid.velocity = new Vector2(-1, rigid.velocity.y); //단순 왼쪽방향 이동  
     }
     void DieDestroyAfter()
     {
         Destroy(gameObject);
-        
     }
    
 }
