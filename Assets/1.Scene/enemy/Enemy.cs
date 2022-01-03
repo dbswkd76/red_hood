@@ -44,7 +44,7 @@ public class Enemy : MonoBehaviour
         {
             if (m_nowhp > 0)
             {
-                anim.SetTrigger("attack");
+                //anim.SetTrigger("attack");
                 rigid.velocity = new Vector2(1, rigid.velocity.y);
                 EnemyDamaged();               
             }
@@ -56,7 +56,7 @@ public class Enemy : MonoBehaviour
         m_nowhp -= 10;
         hit_sound.Play();
         Debug.Log("맞았음");
-        //anim.SetTrigger("hit");
+        anim.SetBool("isHit",true);
         rigid.AddForce(new Vector2(2, 3), ForceMode2D.Impulse);
         spriteRenderer.color = new Color(1, 1, 1, 0.6f);
         gameObject.layer = 7;
@@ -66,6 +66,7 @@ public class Enemy : MonoBehaviour
     void isHitchange()
     {
         isHit = false;
+        anim.SetBool("isHit", false);
     }
     void OffDamaged()
     {
@@ -73,7 +74,7 @@ public class Enemy : MonoBehaviour
         gameObject.layer = 6;
         spriteRenderer.color = new Color(1, 1, 1, 1);
         rigid.velocity = new Vector2(-1, rigid.velocity.y); //단순 왼쪽방향 이동   
-        //anim.SetBool("hit", false);
+        
     }
    
     void Awake()
