@@ -9,6 +9,7 @@ public abstract class Character : MonoBehaviour
     protected Vector2 direction;
     protected Animator myAnimator;
 
+
     private Rigidbody2D myRigid2D;
     protected bool isAttacking = false;
     protected Coroutine attackRoutine;
@@ -31,6 +32,8 @@ public abstract class Character : MonoBehaviour
     // Start is called before the first frame update
      protected virtual void Start()
     {
+       
+
         myRigid2D = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
 
@@ -52,7 +55,9 @@ public abstract class Character : MonoBehaviour
     }
     public void Move()
     {
-        transform.Translate(direction * speed * Time.deltaTime * -1f);
+        
+            transform.Translate(direction * speed * Time.deltaTime * -1f);
+        
         
        
     }
@@ -75,12 +80,12 @@ public abstract class Character : MonoBehaviour
     {
        
     }
-    
+
     /*public void AnimatorMovement()
     {
         animator.SetFloat("x", direction.x);
         animator.SetFloat("y", direction.y);
     }*/
-    
-    
+
+
 }
