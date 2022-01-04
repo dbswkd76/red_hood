@@ -21,7 +21,7 @@ public class O_move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.right * speed * Time.deltaTime * 0.1F);
+        transform.Translate(Vector2.right * speed * Time.deltaTime * 0.1F);
     }
     private void FixedUpdate()
     {
@@ -43,7 +43,7 @@ public class O_move : MonoBehaviour
             else
             {                   
                 curtime -= Time.deltaTime;
-                animator.ResetTrigger("attack");
+                animator.SetBool("run", false);
             }
         }
         if (area == false)
