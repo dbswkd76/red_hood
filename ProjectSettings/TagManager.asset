@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - our
   - BackGround
+  - EnemyAttack
   layers:
   - Default
   - TransparentFX
