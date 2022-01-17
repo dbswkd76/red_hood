@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour
     SpriteRenderer spriteRenderer;
     Rigidbody2D rigid;
     bool isHit = false;
+    bool attacking = false;
 
     private void SetEnemyStat(int maxhp, int damage)
     {
@@ -55,7 +56,7 @@ public class Enemy : MonoBehaviour
         isHit = true;
         m_nowhp -= 10;
         hit_sound.Play();
-        Debug.Log("맞았음");
+        Debug.Log(gameObject.name+" 맞았음");
         anim.SetBool("isHit",true);
         rigid.AddForce(new Vector2(2, 3), ForceMode2D.Impulse);
         spriteRenderer.color = new Color(1, 1, 1, 0.6f);
@@ -131,6 +132,7 @@ public class Enemy : MonoBehaviour
         }
         if (m_nowhp <= 0) // 적 사망
         {
+            Enemy_count.died_wolf++;
             anim.SetBool("dead", true);
             wolf_die.Play();
             Invoke("DieDestroyAfter", 1f);
@@ -140,7 +142,7 @@ public class Enemy : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (m_nowhp > 0 && isHit == false)
+        if (m_nowhp > 0 && isHit == false && attacking == false) 
             rigid.velocity = new Vector2(-1, rigid.velocity.y); //단순 왼쪽방향 이동  
     }
     void DieDestroyAfter()
