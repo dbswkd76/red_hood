@@ -11,6 +11,7 @@ public class hit : MonoBehaviour
         if(other.tag == "Player")
         {
             Hp = GameObject.Find("health");
+
            // Hp -= 10;
         }
     }
