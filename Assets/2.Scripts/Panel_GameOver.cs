@@ -13,9 +13,9 @@ public class Panel_GameOver : MonoBehaviour
     }
 
     public void Show()
-    {
-        
+    { 
         transform.gameObject.SetActive(true);
+        Debug.Log("panel on");
     }
 
     public void OnClick_Retry() // 재도전 함수
