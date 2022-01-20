@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class O_move : MonoBehaviour
+public class Animal_move : MonoBehaviour
 {
+    public Animator animator;
     public float speed;
     float speed_init;
     bool area; //영역안에 상대가 있는지
-    public Animator animator;
     public Transform pos;
-    public Vector2 boxsize;
+
     private float curtime;
     public float cooltime = 0.5f;
     // Start is called before the first frame update
@@ -23,6 +23,9 @@ public class O_move : MonoBehaviour
     {
         transform.Translate(Vector2.right * speed * Time.deltaTime * 0.1F);
     }
+    public Vector2 boxsize; //공격 시작 범위
+    private float waitingtime = 2;
+
     private void FixedUpdate()
     {
         if (area == true)
@@ -48,16 +51,29 @@ public class O_move : MonoBehaviour
         }
         if (area == false)
         {
-            speed = speed_init;
-            animator.SetBool("run", true);
+            if (Animal_life.health == 0) // 사망 시 정지
+            {
+                speed = 0;
+                animator.SetBool("die", true);
+                Invoke("Destroy", 1.5f);
+            }
+            else
+            {
+                speed = speed_init;
+                animator.SetBool("run", true);
+            }
         }
     }
+    private void Destroy()
+    {
+        gameObject.SetActive(false);
+    }
+    //적군 충돌 판정
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag.CompareTo("enemy") == 0)
         {
             area = true;
-            //Debug.LogError("충돌");
         }
     }
     private void OnCollisionStay2D(Collision2D collision)
