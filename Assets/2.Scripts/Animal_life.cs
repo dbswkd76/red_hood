@@ -5,29 +5,42 @@ using UnityEngine;
 public class Animal_life : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int life;
-    static public float health;
+    public int MaxHP;
+    static public float NowHP = 10;
     public Animator animator;
-    
+    static public bool attack = false;
+    public float range;
 
     void Start()
     {
-        health = life;
+        NowHP = MaxHP;
     }
 
     // Update is called once per frame
     void Update()
     {
         //피격 판정
-        // health = life - 공격량
-        if (health == 0)
+        // nowhp = maxhp - 공격량
+        //maxhp = nowhp
+        if (NowHP == 0)
         {
             animator.SetBool("die", true);
         }
     }
 
-    // 생명 받고, 남은 생명 = 생명 - 적 공격력 
-    // 적 공격력 -> 충돌한 발사체 스프라이트에서 받아오기 
-    // 애니멀도 발사체로 공격하는 걸로 해야 하나? 
-    // 
+    private void FixedUpdate()
+    {
+        RaycastHit2D animal_attack = Physics2D.Raycast(transform.position, new Vector2(-1 * range, 2
+            ));
+        if (animal_attack.collider != null)
+        {
+
+            Debug.Log(animal_attack.collider.name);
+        }
+
+        // 생명 받고, 남은 생명 = 생명 - 적 공격력 
+        // 적 공격력 -> 충돌한 발사체 스프라이트에서 받아오기 
+        // 애니멀도 발사체로 공격하는 걸로 해야 하나? 
+        // 
+    }
 }

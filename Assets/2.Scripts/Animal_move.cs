@@ -42,6 +42,7 @@ public class Animal_move : MonoBehaviour
                 curtime = cooltime;                
                 animator.SetTrigger("attack");
                 animator.SetBool("run", false);
+                Animal_life.attack = true; // 공격
             }            
             else
             {                   
@@ -51,13 +52,13 @@ public class Animal_move : MonoBehaviour
         }
         if (area == false)
         {
-            if (Animal_life.health == 0) // 사망 시 정지
+            if (Animal_life.NowHP == 0) // 사망 애니메이션, 정지
             {
                 speed = 0;
                 animator.SetBool("die", true);
                 Invoke("Destroy", 1.5f);
             }
-            else
+            else // 다시 진행
             {
                 speed = speed_init;
                 animator.SetBool("run", true);
