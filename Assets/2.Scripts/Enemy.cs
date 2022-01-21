@@ -8,7 +8,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] int m_maxhp;
     //[SerializeField] int m_speed;
     [SerializeField] int m_damage;
-    private bool isAlive;
     [SerializeField] Slider HpBar;
     //List<Transform> m_enemyList = new List<Transform>();
     //List<Slider> m_hpBarList = new List<Slider>();
@@ -18,14 +17,15 @@ public class Enemy : MonoBehaviour
     public AudioSource wolf_die;
     public AudioSource hit_sound;
     //public AudioSource howling;
-    public List<Transform> obj;
-    public List<GameObject> hp_bar;
+    [SerializeField] List<Transform> obj;
+    [SerializeField] List<GameObject> hp_bar;
     Camera camera;
     SpriteRenderer spriteRenderer;
     Rigidbody2D rigid;
     bool isHit = false;
     bool attacking = false;
-
+    bool attacked = false;
+    [SerializeField] GameObject melee;
     private void SetEnemyStat(int maxhp, int damage)
     {
         m_nowhp = maxhp;
@@ -41,15 +41,26 @@ public class Enemy : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Player"))
+        if ((col.CompareTag("Player")||col.CompareTag("PlayerAttack")) && gameObject.CompareTag("Enemy"))
         {
             if (m_nowhp > 0)
             {
                 //anim.SetTrigger("attack");
                 rigid.velocity = new Vector2(1, rigid.velocity.y);
-                EnemyDamaged();               
+                EnemyDamaged();
             }
         }
+    }
+    void OffAttack()
+    {
+        attacking = false;
+        attacked = true;
+        melee.SetActive(false);
+        Invoke("OffAttacked", 2f);
+    }
+    void OffAttacked()
+    {
+        attacked = false;
     }
     void EnemyDamaged()
     {
@@ -91,7 +102,7 @@ public class Enemy : MonoBehaviour
     {
         if (name.Equals("white"))
         {
-            SetEnemyStat(20, 5);
+            SetEnemyStat(50, 5);
         }
         if (name.Equals("black"))
         {
@@ -103,7 +114,6 @@ public class Enemy : MonoBehaviour
             hp_bar[i].transform.position = obj[i].position;
         }
         HpBar.value = (float)m_nowhp / (float)m_maxhp;
-        isAlive = true;
         //m_cam = Camera.main;
         //t_objects = GameObject.FindGameObjectsWithTag("Enemy");
 
@@ -115,11 +125,11 @@ public class Enemy : MonoBehaviour
         //    m_hpBarList[i].value = (float)nowhp[i] / (float)maxhp[i];
         //}
     }
+    
     void Update()
     {
-        if (m_nowhp <= 0)
-            isAlive = false;
         
+       
         HandleHp();
         //for (int i = 0; i < m_enemyList.Count; i++)
         //{
@@ -142,6 +152,24 @@ public class Enemy : MonoBehaviour
     }
     void FixedUpdate()
     {
+        Debug.DrawRay(transform.position, new Vector3(-2, 0, 0), new Color(0, 1, 0));
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector3(-2, 0, 0), 2f, LayerMask.GetMask("Player"));
+
+        if (hit.collider != null&&isHit==false&&attacking==false)
+        {
+            if (hit.collider.CompareTag("Player"))
+            {
+                Debug.Log("Player감지");
+                melee.SetActive(true);
+                //Debug.Log(hit.collider.name);
+                anim.SetTrigger("attack");
+                attacking = true;
+                Invoke("OffAttack", 1f);
+            }
+           
+
+        }
         if (m_nowhp > 0 && isHit == false && attacking == false) 
             rigid.velocity = new Vector2(-1, rigid.velocity.y); //단순 왼쪽방향 이동  
     }

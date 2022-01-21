@@ -4,22 +4,37 @@ using UnityEngine;
 
 public class Enemy_attack : MonoBehaviour
 {
-    [SerializeField] GameObject melee;
-    private void OnTriggerEnter2D(Collider2D col)
+    
+    Animator anim;
+    float MaxDistance = 105f;
+    private void OnTriggerStay2D(Collider2D col)
     {
         if (col.CompareTag("Player"))
         {
-            Debug.Log("°¨Áö");
-            melee.SetActive(true);
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½");
+           
         }
     }
     void Start()
     {
-        
-    }
 
+    }
     // Update is called once per frame
+
     void Update()
+    {
+
+        //if (Input.GetKey(KeyCode.Z))
+        //{
+        //    melee.SetActive(true);
+        //    anim.SetTrigger("attack");
+        //}
+    }
+    void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
+    void FixedUpdate()
     {
         
     }
