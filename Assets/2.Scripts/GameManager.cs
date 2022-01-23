@@ -32,4 +32,9 @@ public class GameManager : MonoBehaviour
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
         Screen.SetResolution(1080, 720, true);
     }
+    public void Awake()
+    {
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+        Screen.SetResolution(1080, 720, true);
+    }
 }
