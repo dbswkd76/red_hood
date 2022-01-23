@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - our
+  - BackGround
+  - EnemyAttack
   layers:
   - Default
   - TransparentFX
@@ -12,11 +15,11 @@ TagManager:
   - 
   - Water
   - UI
-  - 1234
+  - Enemy
+  - EnemyHit
   - 
-  - 
-  - 
-  - 
+  - Player
+  - Ground
   - 
   - 
   - 

@@ -7,6 +7,11 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public void SceneChangeRound(){
-        SceneManager.LoadScene("윤장");
+        Debug.Log("라운드선택");
+        SceneManager.LoadScene("yunjang");
+    }
+    public void SceneDeckSetting(){
+        Debug.Log("덱셋팅");
+        SceneManager.LoadScene("DeckSetting");
     }
 }
