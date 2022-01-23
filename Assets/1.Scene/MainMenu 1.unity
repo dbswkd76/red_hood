@@ -590,8 +590,13 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
+<<<<<<< Updated upstream
   m_AnchoredPosition: {x: 343.03, y: -169.68}
   m_SizeDelta: {x: 77.71, y: 64.197}
+=======
+  m_AnchoredPosition: {x: 468, y: -233.28}
+  m_SizeDelta: {x: 106.6553, y: 97.0983}
+>>>>>>> Stashed changes
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &501399991
 MeshRenderer:
@@ -1402,10 +1407,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1280, y: 720}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1422,7 +1427,11 @@ Canvas:
   m_GameObject: {fileID: 1883214650}
   m_Enabled: 1
   serializedVersion: 3
+<<<<<<< Updated upstream
   m_RenderMode: 0
+=======
+  m_RenderMode: 1
+>>>>>>> Stashed changes
   m_Camera: {fileID: 495668098}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -1498,8 +1507,13 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
+<<<<<<< Updated upstream
   m_AnchoredPosition: {x: 343.03, y: 170}
   m_SizeDelta: {x: 60.139, y: 49.681}
+=======
+  m_AnchoredPosition: {x: 468, y: 238.54}
+  m_SizeDelta: {x: 82.5387, y: 75.1432}
+>>>>>>> Stashed changes
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &1909433103
 MeshRenderer:
