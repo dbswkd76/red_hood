@@ -4,51 +4,28 @@ using UnityEngine;
 
 public class dongmul : MonoBehaviour
 {
-    struct dongmul_clear {
-        public bool bear = false;
-        public bool deer = false;
-        public bool eagle = false;
-        public bool fox = false;
-        public bool meerkat = false;
-        public bool panther = false;
-        public bool raven = false;
-        public bool snake = false;
-        public bool wolf = false;
-    };
-    struct bear {
-        bool deck = false;
-    };
+    public int[] deck = new int[3];
+    public int dongmulPlus;
+    public int dongmulMinus;
 
-    struct deer {
-        bool deck = false;
-    };
+    public void start(){
+        if (deck[0]==0){
+            deckStart();
+        }
+    }
+    private void deckStart(){
+        deck[0] = 1;
+        deck[1] = 2;
+        deck[2] = 3;
+    }
 
-    struct eagle{
-        bool deck = false;
-    };
+    public void deckMinus(){
+        deck[dongmulMinus] = 0;
+    }
 
-    struct fox{
-        bool deck = false;
-    };
+    public void deckPlus(){
+        deck[dongmulPlus] = dongmulPlus;
+    }
 
-    struct meerkat{
-        bool deck = false;
-    };
-
-    struct panther{
-        bool deck = false;
-    };
-
-    struct raven{
-        bool deck = false;
-    };
-
-    struct snake{
-        bool deck = false;
-    };
-
-    struct wolf{
-        bool deck = false;
-    };
 
 }
