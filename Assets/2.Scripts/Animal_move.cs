@@ -30,24 +30,25 @@ public class Animal_move : MonoBehaviour
     {
         if (area == true)
         {
-            speed = 0F; 
-                // 공격 or  적 체력 -= 데미지                 
+            speed = 0F;
+            animator.SetBool("run", false); // 일단 정지
+            // 공격 or  적 체력 -= 데미지                 
             if (curtime <= 0)                
             {                    
-                Collider2D[] collider2D = Physics2D.OverlapBoxAll(pos.position, boxsize, 0);                
-                foreach (Collider2D collider in collider2D)                
-                {                
-                    Debug.LogError(collider.tag);                    
-                }                
-                curtime = cooltime;                
-                animator.SetTrigger("attack");
-                animator.SetBool("run", false);
-                Animal_life.attack = true; // 공격
+                Collider2D[] collider2D = Physics2D.OverlapBoxAll(pos.position, boxsize, 0);
+                
+                foreach (Collider2D collider in collider2D)
+                {
+                    Debug.LogError(collider.tag);
+                    curtime = cooltime;
+                    animator.SetTrigger("attack");
+                    animator.SetBool("run", false);
+                    Animal_life.attack = true; // 공격                    
+                }
             }            
             else
             {                   
                 curtime -= Time.deltaTime;
-                animator.SetBool("run", false);
             }
         }
         if (area == false)
@@ -64,6 +65,10 @@ public class Animal_move : MonoBehaviour
                 animator.SetBool("run", true);
             }
         }
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(pos.position, boxsize);
     }
     private void Destroy()
     {
