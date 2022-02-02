@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Animal_sohwan : MonoBehaviour
 {
     public GameObject animal;
+    public Slider slider;
     public Button button_1;
     // Start is called before the first frame update
     void Start()
