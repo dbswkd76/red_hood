@@ -5,19 +5,22 @@ using UnityEngine;
 public class Deck : MonoBehaviour
 {
     public GameObject DeckUi;
-    bool activeDeck = false;
+    public static bool activeDeck = false;
+    [SerializeField]
+    public GameObject deckon;
 
-    private void Start()
+    public void Start()
     {
         DeckUi.SetActive(activeDeck);
     }
-    private void Update()
+    public void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             activeDeck = !activeDeck;
             DeckUi.SetActive(activeDeck);
         }
+        
     } 
     // Start is called before the first frame update
 

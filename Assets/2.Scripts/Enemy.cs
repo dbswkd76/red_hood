@@ -8,24 +8,26 @@ public class Enemy : MonoBehaviour
     [SerializeField] int m_maxhp;
     //[SerializeField] int m_speed;
     [SerializeField] int m_damage;
-    private bool isAlive;
     [SerializeField] Slider HpBar;
     //List<Transform> m_enemyList = new List<Transform>();
     //List<Slider> m_hpBarList = new List<Slider>();
     //Camera m_cam = null;
     //GameObject[] t_objects;
     Animator anim;
-    public AudioSource wolf_die;
-    public AudioSource hit_sound;
+    [SerializeField] AudioSource wolf_die;
+    [SerializeField] AudioSource hit_sound;
+    [SerializeField] AudioSource claw_sound;
     //public AudioSource howling;
-    public List<Transform> obj;
-    public List<GameObject> hp_bar;
+    [SerializeField] List<Transform> obj;
+    [SerializeField] List<GameObject> hp_bar;
     Camera camera;
     SpriteRenderer spriteRenderer;
     Rigidbody2D rigid;
-    bool isHit = false;
-    bool attacking = false;
-
+    [SerializeField] bool isHit = false;
+    [SerializeField] bool attacking = false;
+    [SerializeField] bool attacked = false;
+    [SerializeField] bool isIdeal = false;
+    [SerializeField] GameObject melee;
     private void SetEnemyStat(int maxhp, int damage)
     {
         m_nowhp = maxhp;
@@ -41,38 +43,40 @@ public class Enemy : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Player"))
+        if ((col.CompareTag("Player")||col.CompareTag("PlayerAttack")) && gameObject.CompareTag("Enemy"))
         {
             if (m_nowhp > 0)
             {
                 //anim.SetTrigger("attack");
                 rigid.velocity = new Vector2(1, rigid.velocity.y);
-                EnemyDamaged();               
+                EnemyDamaged();
             }
         }
     }
+    
     void EnemyDamaged()
     {
+        attacking = false;
         isHit = true;
-        m_nowhp -= 10;
+        m_nowhp -= 10;   //임의로 설정 추후 변경 필요
         hit_sound.Play();
         Debug.Log(gameObject.name+" 맞았음");
         anim.SetBool("isHit",true);
         rigid.AddForce(new Vector2(2, 3), ForceMode2D.Impulse);
         spriteRenderer.color = new Color(1, 1, 1, 0.6f);
-        gameObject.layer = 7;
-        Invoke("isHitchange", 1f);
+        gameObject.layer = LayerMask.NameToLayer("EnemyHit");  //무적으로 변경
+        Invoke("isHitchange", 1.2f);
         Invoke("OffDamaged", 1.5f);
     }
-    void isHitchange()
+    void isHitchange() //맞은 상태해제(달려감)
     {
         isHit = false;
         anim.SetBool("isHit", false);
     }
-    void OffDamaged()
+    void OffDamaged()   //무적해제
     {
         isHit = false;
-        gameObject.layer = 6;
+        gameObject.layer = LayerMask.NameToLayer("Enemy");
         spriteRenderer.color = new Color(1, 1, 1, 1);
         rigid.velocity = new Vector2(-1, rigid.velocity.y); //단순 왼쪽방향 이동   
         
@@ -103,7 +107,6 @@ public class Enemy : MonoBehaviour
             hp_bar[i].transform.position = obj[i].position;
         }
         HpBar.value = (float)m_nowhp / (float)m_maxhp;
-        isAlive = true;
         //m_cam = Camera.main;
         //t_objects = GameObject.FindGameObjectsWithTag("Enemy");
 
@@ -115,11 +118,11 @@ public class Enemy : MonoBehaviour
         //    m_hpBarList[i].value = (float)nowhp[i] / (float)maxhp[i];
         //}
     }
+    
     void Update()
     {
-        if (m_nowhp <= 0)
-            isAlive = false;
         
+       
         HandleHp();
         //for (int i = 0; i < m_enemyList.Count; i++)
         //{
@@ -137,13 +140,72 @@ public class Enemy : MonoBehaviour
             wolf_die.Play();
             Invoke("DieDestroyAfter", 1f);
             Destroy(HpBar.gameObject);
+            anim.SetBool("attack", false);
+            anim.SetBool("ideal", false);
+            isHit = false;
+            attacking = false;
+            isIdeal = false;
         }
         
     }
     void FixedUpdate()
     {
-        if (m_nowhp > 0 && isHit == false && attacking == false) 
+        Debug.DrawRay(transform.position, new Vector3(-2, 0, 0), new Color(0, 1, 0));
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector3(-2, 0, 0), 2f, LayerMask.GetMask("Player"));
+
+        if (hit.collider != null && isHit == false && attacked == false)  
+        {
+            if (hit.collider.CompareTag("Player"))
+            {
+                Debug.Log("Player감지");
+                attack_ready();
+            }
+        }
+        if(hit.collider==null)   //앞에 아무것도 없을때
+        {
+            anim.SetBool("attack", false);
+            anim.SetBool("ideal", false);
+            attacking = false;
+            isHit = false;
+            isIdeal = false;
+            melee.SetActive(false);
+        }
+
+        if (m_nowhp > 0 && isHit == false && attacking == false)
+        {
             rigid.velocity = new Vector2(-1, rigid.velocity.y); //단순 왼쪽방향 이동  
+            
+        }
+    }
+    void attack_ready()
+    {
+        anim.SetBool("ideal", true);
+        isIdeal = true;
+        attacking = true;
+        Invoke("attack", 0.5f);
+    }
+    void attack()
+    {
+        melee.SetActive(true);
+        anim.SetBool("attack", true);
+        claw_sound.Play();
+        Invoke("OffAttack", 0.5f);
+    }
+    void OffAttack()
+    {
+        Debug.Log("offattack 동작");
+        anim.SetBool("ideal", false);
+        anim.SetBool("attack", false);
+        isIdeal = false;
+        attacking = false;
+        attacked = true;
+        melee.SetActive(false);
+        Invoke("OffAttacked", 2f); //공격 쿨타임 2초
+    }
+    void OffAttacked() //공격 쿨타임
+    {
+        attacked = false;
     }
     void DieDestroyAfter()
     {
