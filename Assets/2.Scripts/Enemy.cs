@@ -28,6 +28,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] bool attacked = false;
     [SerializeField] bool isIdeal = false;
     [SerializeField] GameObject melee;
+    bool isAlive;
     private void SetEnemyStat(int maxhp, int damage)
     {
         m_nowhp = maxhp;
@@ -49,16 +50,16 @@ public class Enemy : MonoBehaviour
             {
                 //anim.SetTrigger("attack");
                 rigid.velocity = new Vector2(1, rigid.velocity.y);
-                EnemyDamaged();
+                EnemyDamaged(10);
             }
         }
     }
     
-    void EnemyDamaged()
+    public void EnemyDamaged(int damage)     //매개변수 추가 , public으로 바꾸기
     {
         attacking = false;
         isHit = true;
-        m_nowhp -= 10;   //임의로 설정 추후 변경 필요
+        m_nowhp -= damage; //damage_bear  //임의로 설정 추후 변경 필요
         hit_sound.Play();
         Debug.Log(gameObject.name+" 맞았음");
         anim.SetBool("isHit",true);
@@ -75,11 +76,10 @@ public class Enemy : MonoBehaviour
     }
     void OffDamaged()   //무적해제
     {
-        isHit = false;
+        //isHit = false;
         gameObject.layer = LayerMask.NameToLayer("Enemy");
         spriteRenderer.color = new Color(1, 1, 1, 1);
-        rigid.velocity = new Vector2(-1, rigid.velocity.y); //단순 왼쪽방향 이동   
-        
+        //rigid.velocity = new Vector2(-1, rigid.velocity.y); //단순 왼쪽방향 이동
     }
    
     void Awake()
@@ -93,6 +93,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+        isAlive = true;
         if (name.Equals("white"))
         {
             SetEnemyStat(20, 5);
@@ -136,6 +137,7 @@ public class Enemy : MonoBehaviour
         if (m_nowhp <= 0) // 적 사망
         {
             Enemy_count.died_wolf++;
+            isAlive = false;
             anim.SetBool("dead", true);
             wolf_die.Play();
             Invoke("DieDestroyAfter", 1f);
@@ -153,29 +155,31 @@ public class Enemy : MonoBehaviour
         Debug.DrawRay(transform.position, new Vector3(-2, 0, 0), new Color(0, 1, 0));
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector3(-2, 0, 0), 2f, LayerMask.GetMask("Player"));
-
-        if (hit.collider != null && isHit == false && attacked == false)  
+        if (isAlive == true)
         {
-            if (hit.collider.CompareTag("Player"))
+            if (hit.collider != null && isHit == false)
             {
-                Debug.Log("Player감지");
-                attack_ready();
+                if (hit.collider.CompareTag("Player"))
+                {
+                    Debug.Log("Player감지");
+                    attack_ready();
+                }
             }
-        }
-        if(hit.collider==null)   //앞에 아무것도 없을때
-        {
-            anim.SetBool("attack", false);
-            anim.SetBool("ideal", false);
-            attacking = false;
-            isHit = false;
-            isIdeal = false;
-            melee.SetActive(false);
-        }
+            if (hit.collider == null)   //앞에 아무것도 없을때
+            {
+                anim.SetBool("attack", false);
+                anim.SetBool("ideal", false);
+                attacking = false;
+                isHit = false;
+                isIdeal = false;
+                melee.SetActive(false);
+            }
 
-        if (m_nowhp > 0 && isHit == false && attacking == false)
-        {
-            rigid.velocity = new Vector2(-1, rigid.velocity.y); //단순 왼쪽방향 이동  
-            
+            if (m_nowhp > 0 && isHit == false && attacking == false)
+            {
+                rigid.velocity = new Vector2(-1, rigid.velocity.y); //단순 왼쪽방향 이동  
+
+            }
         }
     }
     void attack_ready()
@@ -183,19 +187,20 @@ public class Enemy : MonoBehaviour
         anim.SetBool("ideal", true);
         isIdeal = true;
         attacking = true;
-        Invoke("attack", 0.5f);
+        if(attacked==false)
+            Invoke("attack", 0.5f);
     }
     void attack()
     {
+        isIdeal = false;
         melee.SetActive(true);
         anim.SetBool("attack", true);
         claw_sound.Play();
-        Invoke("OffAttack", 0.5f);
+        Invoke("OffAttack", 1f);
     }
     void OffAttack()
     {
         Debug.Log("offattack 동작");
-        anim.SetBool("ideal", false);
         anim.SetBool("attack", false);
         isIdeal = false;
         attacking = false;

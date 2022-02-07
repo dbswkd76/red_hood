@@ -330,7 +330,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 2
+  m_Constraints: 0
 --- !u!114 &17052668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3692,7 +3692,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1447220647}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -293.14, y: -266.96, z: 0}
+  m_LocalPosition: {x: -248, y: -282.2, z: 0}
   m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3740,7 +3740,7 @@ MonoBehaviour:
   HpBar: {fileID: 1764418471}
   wolf_die: {fileID: 550453695}
   hit_sound: {fileID: 1391310591}
-  claw_sound: {fileID: 0}
+  claw_sound: {fileID: 1828835254}
   obj:
   - {fileID: 1447220648}
   hp_bar:
