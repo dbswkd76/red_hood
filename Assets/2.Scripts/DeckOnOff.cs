@@ -8,24 +8,29 @@ public class DeckOnOff : MonoBehaviour
     
     public void InfoSetActive()
     {
-
-        
-        Info.SetActive(!Info.active);
+        Info.SetActive(true);
         GameObject tempInfo = null;
         tempInfo = GameObject.FindWithTag("Info");
-        Debug.Log("get" + tempInfo);
-        tempInfo.SetActive(false);
-        Info.SetActive(!Info.active);
+        if (tempInfo.activeSelf == true)
+        {
+            tempInfo.SetActive(false);
+        }
+
+        Info.SetActive(true);
+        
+      
     }
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.SetActive(false);
+       
+        gameObject.SetActive(false); 
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        InfoSetActive();
     }
 }
