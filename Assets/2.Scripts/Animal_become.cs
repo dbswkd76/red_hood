@@ -18,48 +18,47 @@ public class Animal_become : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
+            GameObject Instant;
             if (animal_1.name == "eagle")
             {
-                GameObject Instant = Instantiate(animal_1, new Vector2(-5, 1), Quaternion.identity);
-                Instant.name = "animal_1";
-                Instant.SetActive(true);
+                Instant = Instantiate(animal_1, new Vector2(-5, 1), Quaternion.identity);
             }
             else
             {
-                GameObject Instant = Instantiate(animal_1, new Vector2(-5, 0), Quaternion.identity);
-                Instant.name = "animal_1";
-                Instant.SetActive(true);
+                Instant = Instantiate(animal_1, new Vector2(-5, 0), Quaternion.identity);
             }
+            Instant.name = animal_1.name;
+            Instant.SetActive(true);
+            
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
+            GameObject Instant;
             if (animal_2.name == "eagle")
             {
-                GameObject Instant = Instantiate(animal_1, new Vector2(-5, 1), Quaternion.identity);
-                Instant.name = "animal_2";
-                Instant.SetActive(true);
+                Instant = Instantiate(animal_1, new Vector2(-5, 1), Quaternion.identity);
             }
             else
             {
-                GameObject Instant = Instantiate(animal_2, new Vector2(-5, 0), Quaternion.identity);
-                Instant.name = "animal_2";
-                Instant.SetActive(true);
+                Instant = Instantiate(animal_2, new Vector2(-5, 0), Quaternion.identity);
             }
+            Instant.name = animal_2.name;
+            Instant.SetActive(true);
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
+            GameObject Instant;
             if (animal_3.name == "eagle")
             {
-                GameObject Instant = Instantiate(animal_1, new Vector2(-5, 1), Quaternion.identity);
-                Instant.name = "animal_3";
-                Instant.SetActive(true);
+                Instant = Instantiate(animal_1, new Vector2(-5, 1), Quaternion.identity);
             }
             else
             {
-                GameObject Instant = Instantiate(animal_3, new Vector2(-5, 0), Quaternion.identity);
-                Instant.name = "animal_3";
-                Instant.SetActive(true);
+                Instant = Instantiate(animal_3, new Vector2(-5, 0), Quaternion.identity);
             }
+            Instant.name = animal_3.name;
+            Instant.SetActive(true);
+            
         }
     }
 }
