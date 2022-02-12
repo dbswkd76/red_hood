@@ -26,7 +26,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] bool isHit = false;
     [SerializeField] bool attacking = false;
     [SerializeField] bool attacked = false;
-    [SerializeField] bool isIdeal = false;
+    [SerializeField] bool isidle = false;
+    [SerializeField] bool playerdetect = false;
     [SerializeField] GameObject melee;
     bool isAlive;
     private void SetEnemyStat(int maxhp, int damage)
@@ -49,7 +50,7 @@ public class Enemy : MonoBehaviour
             if (m_nowhp > 0)
             {
                 //anim.SetTrigger("attack");
-                rigid.velocity = new Vector2(1, rigid.velocity.y);
+                //rigid.velocity = new Vector2(1, rigid.velocity.y);
                 EnemyDamaged(10);
             }
         }
@@ -66,17 +67,18 @@ public class Enemy : MonoBehaviour
         rigid.AddForce(new Vector2(2, 3), ForceMode2D.Impulse);
         spriteRenderer.color = new Color(1, 1, 1, 0.6f);
         gameObject.layer = LayerMask.NameToLayer("EnemyHit");  //무적으로 변경
-        Invoke("isHitchange", 1.2f);
+        Invoke("isHitchange", 0.5f);
         Invoke("OffDamaged", 1.5f);
     }
     void isHitchange() //맞은 상태해제(달려감)
     {
+        Debug.Log("맞은 상태해제");
         isHit = false;
         anim.SetBool("isHit", false);
     }
     void OffDamaged()   //무적해제
     {
-        //isHit = false;
+        isHit = false;
         gameObject.layer = LayerMask.NameToLayer("Enemy");
         spriteRenderer.color = new Color(1, 1, 1, 1);
         //rigid.velocity = new Vector2(-1, rigid.velocity.y); //단순 왼쪽방향 이동
@@ -94,9 +96,14 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         isAlive = true;
+        isHit = false;
+        attacking = false;
+        attacked = false;
+        isidle = false;
+        playerdetect = false;
         if (name.Equals("white"))
         {
-            SetEnemyStat(20, 5);
+            SetEnemyStat(50, 5);
         }
         if (name.Equals("black"))
         {
@@ -122,8 +129,6 @@ public class Enemy : MonoBehaviour
     
     void Update()
     {
-        
-       
         HandleHp();
         //for (int i = 0; i < m_enemyList.Count; i++)
         //{
@@ -143,10 +148,9 @@ public class Enemy : MonoBehaviour
             Invoke("DieDestroyAfter", 1f);
             Destroy(HpBar.gameObject);
             anim.SetBool("attack", false);
-            anim.SetBool("ideal", false);
+            anim.SetBool("idle", false);
             isHit = false;
             attacking = false;
-            isIdeal = false;
         }
         
     }
@@ -162,20 +166,22 @@ public class Enemy : MonoBehaviour
                 if (hit.collider.CompareTag("Player"))
                 {
                     Debug.Log("Player감지");
+                    playerdetect = true;
                     attack_ready();
                 }
             }
             if (hit.collider == null)   //앞에 아무것도 없을때
             {
+                playerdetect = false;
                 anim.SetBool("attack", false);
-                anim.SetBool("ideal", false);
+                anim.SetBool("idle", false);
                 attacking = false;
                 isHit = false;
-                isIdeal = false;
+                isidle = false;
                 melee.SetActive(false);
             }
 
-            if (m_nowhp > 0 && isHit == false && attacking == false)
+            if (isHit == false && attacking == false && playerdetect == false) 
             {
                 rigid.velocity = new Vector2(-1, rigid.velocity.y); //단순 왼쪽방향 이동  
 
@@ -184,25 +190,28 @@ public class Enemy : MonoBehaviour
     }
     void attack_ready()
     {
-        anim.SetBool("ideal", true);
-        isIdeal = true;
+        anim.SetBool("idle", true);
+        isidle = true;
         attacking = true;
         if(attacked==false)
             Invoke("attack", 0.5f);
     }
     void attack()
     {
-        isIdeal = false;
-        melee.SetActive(true);
-        anim.SetBool("attack", true);
-        claw_sound.Play();
+        isidle = false;
+        if (isHit == false)
+        {   
+            claw_sound.Play();
+            melee.SetActive(true);
+            anim.SetBool("attack", true);
+        }
         Invoke("OffAttack", 1f);
     }
     void OffAttack()
     {
         Debug.Log("offattack 동작");
         anim.SetBool("attack", false);
-        isIdeal = false;
+        isidle = false;
         attacking = false;
         attacked = true;
         melee.SetActive(false);
