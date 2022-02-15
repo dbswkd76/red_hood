@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     Animator anim;
     [SerializeField] AudioSource wolf_die;
     [SerializeField] AudioSource hit_sound;
-    [SerializeField] AudioSource claw_sound;
+    //[SerializeField] AudioSource claw_sound;
     //public AudioSource howling;
     [SerializeField] List<Transform> obj;
     [SerializeField] List<GameObject> hp_bar;
@@ -201,11 +201,11 @@ public class Enemy : MonoBehaviour
         isidle = false;
         if (isHit == false)
         {   
-            claw_sound.Play();
+            //claw_sound.Play();
             melee.SetActive(true);
             anim.SetBool("attack", true);
         }
-        Invoke("OffAttack", 1f);
+        Invoke("OffAttack", 1.2f);
     }
     void OffAttack()
     {
