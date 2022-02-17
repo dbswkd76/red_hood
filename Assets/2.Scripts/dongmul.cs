@@ -5,19 +5,19 @@ using UnityEngine.UI;
 
 public class dongmul : MonoBehaviour
 {  
-    public int[] DeckArr = new int [] {10, 10, 10};
-    public GameObject[] animal1 = new GameObject [8];
-    public GameObject[] animal2 = new GameObject [8];
-    public GameObject[] animal3 = new GameObject [8];
+    public deckInfo deckInfo;
+    [SerializeField] GameObject[] animal1 = new GameObject [8];
+    [SerializeField] GameObject[] animal2 = new GameObject [8];
+    [SerializeField] GameObject[] animal3 = new GameObject [8];
     private bool isOn = false;
-    public GameObject buton;
-    public GameObject selectionOryu;
-    public GameObject jungbokOryu;
-    public GameObject jeojang;
-    public GameObject select;
+    [SerializeField] GameObject buton;
+    [SerializeField] GameObject selectionOryu;
+    [SerializeField] GameObject jungbokOryu;
+    [SerializeField] GameObject jeojang;
+    [SerializeField] GameObject select;
     public int choice;
-    public GameObject[] minusbuton = new GameObject [3];
-    public GameObject minus;
+    [SerializeField] GameObject[] minusbuton = new GameObject [3];
+    [SerializeField] GameObject minus;
 
     public void setDeck(){
         if (!isOn){
@@ -44,19 +44,19 @@ public class dongmul : MonoBehaviour
         Debug.Log("덱 빼기 실행됨");
         if (isOn){
             if (choice == -1){
-                DeckArr[0] = 10;
+                deckInfo.DeckArr[0] = 10;
                 for (int k = 0; k<=7; k++)
                     animal1[k].SetActive(false);
                 minusbuton[0].SetActive(false);
             }
             else if (choice == -2){
-                DeckArr[1] = 10;
+                deckInfo.DeckArr[1] = 10;
                 for (int k = 0; k<=7; k++)
                     animal2[k].SetActive(false);
                 minusbuton[1].SetActive(false);
             }
             else if (choice == -3){
-                DeckArr[2] = 10;
+                deckInfo.DeckArr[2] = 10;
                 for (int k = 0; k<=7; k++)
                     animal3[k].SetActive(false);
                 minusbuton[2].SetActive(false);
@@ -71,7 +71,7 @@ public class dongmul : MonoBehaviour
         if (isOn){
             for(int j=0;j<3;j++){
                 i = j;
-                if (DeckArr[j] == 10){
+                if (deckInfo.DeckArr[j] == 10){
                     inin = true;
                     break;
                 }
@@ -79,22 +79,22 @@ public class dongmul : MonoBehaviour
             if (inin==false){
                 selectionOryu.SetActive(true);  //오류창 출력
             }
-            else if (DeckArr[0]==choice || DeckArr[1]==choice || DeckArr[2]==choice){
+            else if (deckInfo.DeckArr[0]==choice || deckInfo.DeckArr[1]==choice || deckInfo.DeckArr[2]==choice){
                 jungbokOryu.SetActive(true);
             }
             else if (i == 0){
-                DeckArr[i] = choice;
+                deckInfo.DeckArr[i] = choice;
                 animal1[choice].SetActive(true);
                 minusbuton[i].SetActive(true);
             }
 
             else if (i == 1){
-                DeckArr[i] = choice;
+                deckInfo.DeckArr[i] = choice;
                 animal2[choice].SetActive(true);
                 minusbuton[i].SetActive(true);
             }
             else if (i == 2){
-                DeckArr[i] = choice;
+                deckInfo.DeckArr[i] = choice;
                 animal3[choice].SetActive(true);
                 minusbuton[i].SetActive(true);
             }
