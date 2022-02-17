@@ -5,8 +5,8 @@ using UnityEngine;
 public class Animal_life : MonoBehaviour
 {
     // Start is called before the first frame update
-    static public float MaxHP;
-    static public float NowHP;
+    public float MaxHP;
+    public float NowHP;
     public Animator animator;
     static public bool attack = false;
     public float range;
