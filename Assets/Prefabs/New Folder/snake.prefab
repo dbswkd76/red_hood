@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 7098454525536645276}
   - component: {fileID: 3711506959986218962}
   - component: {fileID: 5111693831369418359}
+  - component: {fileID: -2222568345735252849}
   m_Layer: 9
   m_Name: snake
   m_TagString: our
@@ -324,3 +325,17 @@ MonoBehaviour:
   max_Hp: 50
   now_Hp: 40
   canvas: {fileID: 0}
+--- !u!114 &-2222568345735252849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5113280620639875031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f5aae6c263fe8645acd4f028a309278, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 5162232793730445651}
+  range: 0

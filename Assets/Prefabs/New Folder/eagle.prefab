@@ -147,8 +147,8 @@ GameObject:
   - component: {fileID: 5282167239349684886}
   - component: {fileID: 5282167239349684887}
   - component: {fileID: 5282167239349684885}
-  - component: {fileID: 3563379652360513080}
   - component: {fileID: 3563379652360513074}
+  - component: {fileID: 3563379652360513080}
   m_Layer: 9
   m_Name: eagle
   m_TagString: our
@@ -308,21 +308,6 @@ MonoBehaviour:
   pos: {fileID: 3563379653304124507}
   cooltime: 10
   boxsize: {x: 10, y: 10}
---- !u!114 &3563379652360513080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5280513736792633608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f5aae6c263fe8645acd4f028a309278, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHP: 10
-  animator: {fileID: 5195485911876143330}
-  range: 0
 --- !u!114 &3563379652360513074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,3 +325,17 @@ MonoBehaviour:
   max_Hp: 100
   now_Hp: 100
   canvas: {fileID: 0}
+--- !u!114 &3563379652360513080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5280513736792633608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f5aae6c263fe8645acd4f028a309278, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 5195485911876143330}
+  range: 0

@@ -147,6 +147,8 @@ GameObject:
   - component: {fileID: 9222350670939984081}
   - component: {fileID: 9222350670939984082}
   - component: {fileID: 9222350670939984083}
+  - component: {fileID: -5719110214073841060}
+  - component: {fileID: -5834136889414348770}
   m_Layer: 9
   m_Name: deer
   m_TagString: our
@@ -302,7 +304,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 9126748477042453623}
-  speed: 10
+  speed: 13
   pos: {fileID: 2519376593304831731}
   cooltime: 10
   boxsize: {x: 5, y: 10}
+--- !u!114 &-5719110214073841060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9223364894079108061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 199cbcaec3774e64fb5890c9caf82da6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 9219729685468001495}
+  hpbar: {fileID: 0}
+  max_Hp: 100
+  now_Hp: 10
+  canvas: {fileID: 0}
+--- !u!114 &-5834136889414348770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9223364894079108061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f5aae6c263fe8645acd4f028a309278, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 9126748477042453623}
+  range: 0

@@ -9,6 +9,7 @@ public class Animal_move : MonoBehaviour
     float speed_init;
     bool area; //영역안에 상대가 있는지
     public Transform pos;
+    AudioSource attacksound;
 
     private float curtime;
     public float cooltime = 0.5f;
@@ -43,6 +44,7 @@ public class Animal_move : MonoBehaviour
                     curtime = cooltime;
                     animator.SetTrigger("attack");
                     animator.SetBool("run", false);
+                    attacksound.Play();
                     Animal_life.attack = true; // 공격                    
                 }
             }            

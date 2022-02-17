@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 663519630565140943}
   - component: {fileID: 1634103397645966797}
   - component: {fileID: 6211769957287696767}
+  - component: {fileID: 6304742201817529009}
   m_Layer: 9
   m_Name: bear
   m_TagString: our
@@ -303,7 +304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 8012230102641999149}
-  speed: 10
+  speed: 15
   pos: {fileID: 6211769956253754642}
   cooltime: 5
   boxsize: {x: 2, y: 2}
@@ -324,3 +325,17 @@ MonoBehaviour:
   max_Hp: 100
   now_Hp: 100
   canvas: {fileID: 0}
+--- !u!114 &6304742201817529009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7953872841058088769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f5aae6c263fe8645acd4f028a309278, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 8012230102641999149}
+  range: 1

@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 5834692857209163436}
   - component: {fileID: 4325424138431217081}
   - component: {fileID: 5145155499398805288}
-  - component: {fileID: 1188440912507082905}
   - component: {fileID: 1188440912507082900}
+  - component: {fileID: 1188440912507082905}
   m_Layer: 9
   m_Name: panther
   m_TagString: our
@@ -175,21 +175,6 @@ MonoBehaviour:
   pos: {fileID: 1188440912930423209}
   cooltime: 7
   boxsize: {x: 5, y: 5}
---- !u!114 &1188440912507082905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1187793470978283681}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f5aae6c263fe8645acd4f028a309278, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHP: 0
-  animator: {fileID: 1237657285831445355}
-  range: 0
 --- !u!114 &1188440912507082900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,6 +192,20 @@ MonoBehaviour:
   max_Hp: 100
   now_Hp: 100
   canvas: {fileID: 0}
+--- !u!114 &1188440912507082905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187793470978283681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f5aae6c263fe8645acd4f028a309278, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1237657285831445355}
+  range: 0
 --- !u!1 &1188440912930423214
 GameObject:
   m_ObjectHideFlags: 0
