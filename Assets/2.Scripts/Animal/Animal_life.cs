@@ -5,8 +5,8 @@ using UnityEngine;
 public class Animal_life : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int MaxHP;
-    static public float NowHP = 10;
+    static public float MaxHP;
+    static public float NowHP;
     public Animator animator;
     static public bool attack = false;
     public float range;
@@ -22,6 +22,7 @@ public class Animal_life : MonoBehaviour
         //피격 판정
         // nowhp = maxhp - 공격량
         //maxhp = nowhp
+        
         if (NowHP == 0)
         {
             animator.SetBool("die", true);
@@ -30,8 +31,7 @@ public class Animal_life : MonoBehaviour
 
     private void FixedUpdate()
     {
-        RaycastHit2D animal_attack = Physics2D.Raycast(transform.position, new Vector2(-1 * range, 2
-            ));
+        RaycastHit2D animal_attack = Physics2D.Raycast(transform.position, new Vector2(-1 * range, 2));
         if (animal_attack.collider != null)
         {
 
