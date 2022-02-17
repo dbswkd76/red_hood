@@ -64,7 +64,7 @@ public class Enemy : MonoBehaviour
         hit_sound.Play();
         Debug.Log(gameObject.name+" 맞았음");
         anim.SetBool("isHit",true);
-        rigid.AddForce(new Vector2(2, 3), ForceMode2D.Impulse);
+        rigid.AddForce(new Vector2(3, 3), ForceMode2D.Impulse);
         spriteRenderer.color = new Color(1, 1, 1, 0.6f);
         gameObject.layer = LayerMask.NameToLayer("EnemyHit");  //무적으로 변경
         Invoke("isHitchange", 0.5f);
@@ -73,7 +73,7 @@ public class Enemy : MonoBehaviour
     void isHitchange() //맞은 상태해제(달려감)
     {
         Debug.Log("맞은 상태해제");
-        isHit = false;
+        //isHit = false;
         anim.SetBool("isHit", false);
     }
     void OffDamaged()   //무적해제
