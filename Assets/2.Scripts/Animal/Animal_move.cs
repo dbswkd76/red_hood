@@ -9,7 +9,7 @@ public class Animal_move : MonoBehaviour
     float speed_init;
     bool area; //영역안에 상대가 있는지
     public Transform pos;
-    AudioSource attacksound;
+    public AudioSource attacksound;
 
     private float curtime;
     public float cooltime = 0.5f;
@@ -29,6 +29,8 @@ public class Animal_move : MonoBehaviour
 
     private void FixedUpdate()
     {
+
+        Animal_life life = GetComponent<Animal_life>();
         if (area == true)
         {
             speed = 0F;
@@ -55,7 +57,7 @@ public class Animal_move : MonoBehaviour
         }
         if (area == false)
         {
-            if (Animal_life.NowHP == 0) // 사망 애니메이션, 정지
+            if (life.NowHP == 0) // 사망 애니메이션, 정지
             {
                 speed = 0;
                 animator.SetBool("die", true);

@@ -34,7 +34,6 @@ public class Animal_life : MonoBehaviour
         RaycastHit2D animal_attack = Physics2D.Raycast(transform.position, new Vector2(-1 * range, 2));
         if (animal_attack.collider != null)
         {
-
             Debug.Log(animal_attack.collider.name);
         }
 

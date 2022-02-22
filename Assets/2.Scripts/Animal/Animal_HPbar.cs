@@ -12,7 +12,7 @@ public class Animal_HPbar : MonoBehaviour
     public GameObject canvas;
     RectTransform HPbar;
 
-    Camera camera;
+    new Camera camera;
 
 
     private void Start()
@@ -26,6 +26,7 @@ public class Animal_HPbar : MonoBehaviour
 
     void Update()
     {
+        Animal_life life = GetComponent<Animal_life>();
         now_Hp = life.NowHP;
 
         hpbar.value = now_Hp / max_Hp;
