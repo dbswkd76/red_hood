@@ -18,6 +18,9 @@ public class dongmul : MonoBehaviour
     public int choice;
     [SerializeField] GameObject[] minusbuton = new GameObject [3];
     [SerializeField] GameObject minus;
+    public GameObject[] sulmyeongText = new GameObject [8];
+    public GameObject[] sulmyeongAni = new GameObject [8];
+    
 
     public void setDeck(){
         if (!isOn){
