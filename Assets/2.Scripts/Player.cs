@@ -60,10 +60,10 @@ public class Player : MonoBehaviour
         HandleLayers();
         if (die == false)
         {
-            if (health.MyCurrentValue == 0)
-            {
-                
-            }
+            //if (health.MyCurrentValue == 0)
+            //{
+
+            //}
             Move();
             float horizontal = Input.GetAxis("Horizontal"); //좌우 방향키 입력
             float offset = 0.5f + Input.GetAxis("Sprint");

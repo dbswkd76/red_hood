@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/1.Scene/yunjang.unity
     guid: 2ea5e615565563f47a0ac5106d4fb4cd
+  - enabled: 1
+    path: Assets/1.Scene/DeckSetting 2.unity
+    guid: 22d816e11bc8d425f8c02984d5f7bb1a
+  - enabled: 1
+    path: Assets/1.Scene/JunseokSample.unity
+    guid: 74e729a02a7455941a73edaa78f7f814
   m_configObjects: {}
