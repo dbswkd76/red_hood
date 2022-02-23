@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Animal_HPbar : MonoBehaviour
-{   
+{
     Animal_life life;
     public Transform player;
     public Slider hpbar;
@@ -13,12 +13,12 @@ public class Animal_HPbar : MonoBehaviour
     public GameObject canvas;
     RectTransform HPbar;
 
-    Camera camera;
+    new Camera camera;
 
 
     private void Start()
     {
-        Animal_life life = GetComponent<Animal_life>();
+        life = GetComponent<Animal_life>();
         life.MaxHP = max_Hp;
         life.NowHP = now_Hp;
         camera = Camera.main;

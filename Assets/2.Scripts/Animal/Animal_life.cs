@@ -8,7 +8,7 @@ public class Animal_life : MonoBehaviour
     public float MaxHP;
     public float NowHP;
     public Animator animator;
-    static public bool attack = false;
+    public bool attack = false;
     public float range;
 
     void Start()
@@ -34,7 +34,6 @@ public class Animal_life : MonoBehaviour
         RaycastHit2D animal_attack = Physics2D.Raycast(transform.position, new Vector2(-1 * range, 2));
         if (animal_attack.collider != null)
         {
-
             Debug.Log(animal_attack.collider.name);
         }
 
