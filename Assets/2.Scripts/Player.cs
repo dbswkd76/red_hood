@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
     {
         get
         {
-            return direction.x != 0 || direction.y != 0;
+            return direction.x != 0|| direction.y != 0;
         }
     }
     private void Awake()
@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
             float offset = 0.5f + Input.GetAxis("Sprint");
             float moveParameter = Mathf.Abs(horizontal * offset); //파라미터 절대값 적용
             animator.SetFloat("RunState", moveParameter);
-
+           
 
             if (Input.GetAxisRaw("Horizontal") < 0) //플레이어 이미지 좌우반전
             {
@@ -120,7 +120,8 @@ public class Player : MonoBehaviour
 
             moveVector.x = Input.GetAxisRaw("Horizontal");
             moveVector.y = Input.GetAxisRaw("Vertical");
-
+            moveVector.y = Mathf.Clamp(moveVector.y, 0, 0);
+           
             direction = moveVector;
 
             if (Input.GetKeyDown(KeyCode.I))
