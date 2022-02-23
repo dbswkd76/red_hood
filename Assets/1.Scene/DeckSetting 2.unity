@@ -602,7 +602,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 123848938}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -611,7 +611,7 @@ RectTransform:
   - {fileID: 2140295010}
   - {fileID: 1401202214}
   m_Father: {fileID: 1371666649}
-  m_RootOrder: 13
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -709,6 +709,7 @@ GameObject:
   - component: {fileID: 255254080}
   - component: {fileID: 255254079}
   - component: {fileID: 255254078}
+  - component: {fileID: 255254081}
   m_Layer: 5
   m_Name: eagle
   m_TagString: Untagged
@@ -779,7 +780,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 255254079}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 255254081}
+        m_TargetAssemblyTypeName: Sulmyeong, Assembly-CSharp
+        m_MethodName: sulmyeongOn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &255254079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -818,6 +831,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 255254076}
   m_CullTransparentMesh: 1
+--- !u!114 &255254081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255254076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 581dd1bcb18a24af09219bc0fed77547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dongmul: {fileID: 687065839}
+  sulmyeongCode: 5
 --- !u!1 &271950624
 GameObject:
   m_ObjectHideFlags: 0
@@ -853,8 +880,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: 1.64}
+  m_SizeDelta: {x: 160, y: 186.94}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &271950626
 MonoBehaviour:
@@ -878,10 +905,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -889,7 +916,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: "\uC0AC\uC2B4. \uC6B8\uC74C\uC18C\uB9AC\uAC00 \uC18C\uCC98\uB7FC \uB4E4\uB9AC\uACA0\uC9C0\uB9CC
+    \uC0AC\uC2B4\uC774 \uB0B4\uB294\uAC70 \uB9DE\uB2E4."
 --- !u!222 &271950627
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -930,7 +958,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 784413893}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1007,6 +1035,7 @@ GameObject:
   - component: {fileID: 287891518}
   - component: {fileID: 287891517}
   - component: {fileID: 287891516}
+  - component: {fileID: 287891519}
   m_Layer: 5
   m_Name: michulsi
   m_TagString: Untagged
@@ -1027,7 +1056,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1371666649}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1116,6 +1145,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 287891514}
   m_CullTransparentMesh: 1
+--- !u!114 &287891519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287891514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 581dd1bcb18a24af09219bc0fed77547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dongmul: {fileID: 0}
+  sulmyeongCode: 0
 --- !u!1 &310670932
 GameObject:
   m_ObjectHideFlags: 0
@@ -1288,6 +1331,7 @@ GameObject:
   - component: {fileID: 444427997}
   - component: {fileID: 444427996}
   - component: {fileID: 444427995}
+  - component: {fileID: 444427998}
   m_Layer: 5
   m_Name: snake
   m_TagString: Untagged
@@ -1358,7 +1402,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 444427996}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 444427998}
+        m_TargetAssemblyTypeName: Sulmyeong, Assembly-CSharp
+        m_MethodName: sulmyeongOn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &444427996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1397,6 +1453,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 444427993}
   m_CullTransparentMesh: 1
+--- !u!114 &444427998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444427993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 581dd1bcb18a24af09219bc0fed77547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dongmul: {fileID: 687065839}
+  sulmyeongCode: 1
 --- !u!1 &449420834
 GameObject:
   m_ObjectHideFlags: 0
@@ -1409,6 +1479,7 @@ GameObject:
   - component: {fileID: 449420838}
   - component: {fileID: 449420837}
   - component: {fileID: 449420836}
+  - component: {fileID: 449420839}
   m_Layer: 5
   m_Name: fox
   m_TagString: Untagged
@@ -1429,7 +1500,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1371666649}
-  m_RootOrder: 10
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1479,7 +1550,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 449420837}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 449420839}
+        m_TargetAssemblyTypeName: Sulmyeong, Assembly-CSharp
+        m_MethodName: sulmyeongOn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &449420837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1518,6 +1601,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 449420834}
   m_CullTransparentMesh: 1
+--- !u!114 &449420839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449420834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 581dd1bcb18a24af09219bc0fed77547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dongmul: {fileID: 687065839}
+  sulmyeongCode: 3
 --- !u!1 &486691504
 GameObject:
   m_ObjectHideFlags: 0
@@ -2026,8 +2123,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: 1.64}
+  m_SizeDelta: {x: 160, y: 186.94}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &586105572
 MonoBehaviour:
@@ -2051,10 +2148,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -2062,7 +2159,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: "\uB3C5\uC218\uB9AC. \uBB34\uC11C\uC6B4 \uB9F9\uAE08\uB958\uC774\uC9C0\uB9CC
+    \uB300\uBA38\uB9AC\uC774\uB2E4."
 --- !u!222 &586105573
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2083,6 +2181,7 @@ GameObject:
   - component: {fileID: 588396244}
   - component: {fileID: 588396243}
   - component: {fileID: 588396242}
+  - component: {fileID: 588396245}
   m_Layer: 5
   m_Name: raven
   m_TagString: Untagged
@@ -2103,7 +2202,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1371666649}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2153,7 +2252,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 588396243}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 588396245}
+        m_TargetAssemblyTypeName: Sulmyeong, Assembly-CSharp
+        m_MethodName: sulmyeongOn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &588396243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2192,6 +2303,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 588396240}
   m_CullTransparentMesh: 1
+--- !u!114 &588396245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588396240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 581dd1bcb18a24af09219bc0fed77547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dongmul: {fileID: 687065839}
+  sulmyeongCode: 2
 --- !u!1 &593310418
 GameObject:
   m_ObjectHideFlags: 0
@@ -2321,7 +2446,7 @@ RectTransform:
   m_Children:
   - {fileID: 1313603488}
   m_Father: {fileID: 1371666649}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2378,6 +2503,7 @@ GameObject:
   - component: {fileID: 595821487}
   - component: {fileID: 595821486}
   - component: {fileID: 595821485}
+  - component: {fileID: 595821488}
   m_Layer: 5
   m_Name: deer
   m_TagString: Untagged
@@ -2398,7 +2524,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1371666649}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2448,7 +2574,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 595821486}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 595821488}
+        m_TargetAssemblyTypeName: Sulmyeong, Assembly-CSharp
+        m_MethodName: sulmyeongOn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &595821486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2487,6 +2625,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 595821483}
   m_CullTransparentMesh: 1
+--- !u!114 &595821488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595821483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 581dd1bcb18a24af09219bc0fed77547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dongmul: {fileID: 687065839}
+  sulmyeongCode: 4
 --- !u!1 &679485552
 GameObject:
   m_ObjectHideFlags: 0
@@ -2577,6 +2729,7 @@ GameObject:
   m_Component:
   - component: {fileID: 687065838}
   - component: {fileID: 687065839}
+  - component: {fileID: 687065840}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2611,7 +2764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c52ac80f5b8d4b8ab8fec1697d4bd3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeckArr: 0a0000000a0000000a000000
+  deckInfo: {fileID: 687065840}
   animal1:
   - {fileID: 2891691492602487180}
   - {fileID: 2891691492214061307}
@@ -2623,7 +2776,7 @@ MonoBehaviour:
   - {fileID: 2891691491904037337}
   animal2:
   - {fileID: 2891691491638603355}
-  - {fileID: 2891691491759996103}
+  - {fileID: 2891691491229726508}
   - {fileID: 2891691491106090977}
   - {fileID: 2891691492662313661}
   - {fileID: 2891691491254768633}
@@ -2650,6 +2803,37 @@ MonoBehaviour:
   - {fileID: 2140295009}
   - {fileID: 1401202213}
   minus: {fileID: 123848938}
+  sulmyeongText:
+  - {fileID: 1467838527}
+  - {fileID: 1793913569}
+  - {fileID: 852250120}
+  - {fileID: 920249231}
+  - {fileID: 271950624}
+  - {fileID: 586105570}
+  - {fileID: 885398262}
+  - {fileID: 1582235809}
+  sulmyeongAni:
+  - {fileID: 1694936233}
+  - {fileID: 1923241048}
+  - {fileID: 579983175}
+  - {fileID: 14230819}
+  - {fileID: 593310418}
+  - {fileID: 1869197431}
+  - {fileID: 285627454}
+  - {fileID: 2123312577}
+--- !u!114 &687065840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687065837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 074819b46d4284fa2a467fc5ccd4e79e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeckArr: 0a0000000a0000000a000000
 --- !u!1 &715394943
 GameObject:
   m_ObjectHideFlags: 0
@@ -3118,14 +3302,14 @@ RectTransform:
   - {fileID: 586105571}
   - {fileID: 885398263}
   - {fileID: 1582235810}
-  - {fileID: 2123312578}
+  - {fileID: 1694936234}
   - {fileID: 1923241049}
   - {fileID: 579983176}
   - {fileID: 14230820}
   - {fileID: 593310419}
-  - {fileID: 1694936234}
   - {fileID: 1869197432}
   - {fileID: 285627455}
+  - {fileID: 2123312578}
   m_Father: {fileID: 1371666649}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3332,6 +3516,7 @@ GameObject:
   - component: {fileID: 834906495}
   - component: {fileID: 834906494}
   - component: {fileID: 834906493}
+  - component: {fileID: 834906496}
   m_Layer: 5
   m_Name: panther
   m_TagString: Untagged
@@ -3352,7 +3537,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1371666649}
-  m_RootOrder: 11
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3402,7 +3587,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 834906494}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 834906496}
+        m_TargetAssemblyTypeName: Sulmyeong, Assembly-CSharp
+        m_MethodName: sulmyeongOn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &834906494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3441,6 +3638,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 834906491}
   m_CullTransparentMesh: 1
+--- !u!114 &834906496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834906491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 581dd1bcb18a24af09219bc0fed77547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dongmul: {fileID: 687065839}
+  sulmyeongCode: 6
 --- !u!1 &852250120
 GameObject:
   m_ObjectHideFlags: 0
@@ -3476,8 +3687,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: 1.64}
+  m_SizeDelta: {x: 160, y: 186.94}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &852250122
 MonoBehaviour:
@@ -3501,10 +3712,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -3512,7 +3723,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: "\uAE4C\uC545\uAE4C\uC545"
 --- !u!222 &852250123
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3556,8 +3767,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: 1.64}
+  m_SizeDelta: {x: 160, y: 186.94}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &885398264
 MonoBehaviour:
@@ -3581,10 +3792,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -3592,7 +3803,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: "\uC640\uCE78\uB2E4\uD3EC\uC5D0\uBC84"
 --- !u!222 &885398265
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3850,8 +4061,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: 1.64}
+  m_SizeDelta: {x: 160, y: 186.94}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &920249233
 MonoBehaviour:
@@ -3875,10 +4086,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -3886,7 +4097,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: "\uC5EC\uC6B0. \uC601\uC545\uD558\uB2E4."
 --- !u!222 &920249234
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4029,7 +4240,7 @@ RectTransform:
   - {fileID: 1664537615}
   - {fileID: 530603989}
   m_Father: {fileID: 1371666649}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4128,6 +4339,7 @@ GameObject:
   - component: {fileID: 1293328071}
   - component: {fileID: 1293328070}
   - component: {fileID: 1293328069}
+  - component: {fileID: 1293328072}
   m_Layer: 5
   m_Name: meerkat
   m_TagString: Untagged
@@ -4199,13 +4411,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1293328072}
+        m_TargetAssemblyTypeName: Sulmyeong, Assembly-CSharp
+        m_MethodName: sulmyeongOn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4249,6 +4461,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1293328067}
   m_CullTransparentMesh: 1
+--- !u!114 &1293328072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293328067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 581dd1bcb18a24af09219bc0fed77547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dongmul: {fileID: 687065839}
+  sulmyeongCode: 0
 --- !u!1 &1313603487
 GameObject:
   m_ObjectHideFlags: 0
@@ -4481,20 +4707,20 @@ RectTransform:
   - {fileID: 1860864655}
   - {fileID: 1293328068}
   - {fileID: 444427994}
-  - {fileID: 595821484}
-  - {fileID: 1979483167}
   - {fileID: 588396241}
-  - {fileID: 255254077}
-  - {fileID: 287891515}
   - {fileID: 449420835}
+  - {fileID: 595821484}
+  - {fileID: 255254077}
   - {fileID: 834906492}
+  - {fileID: 1979483167}
+  - {fileID: 287891515}
   - {fileID: 784413893}
-  - {fileID: 123848939}
   - {fileID: 987904567}
   - {fileID: 2891691490992048728}
   - {fileID: 2891691492176135567}
   - {fileID: 2891691491648228964}
   - {fileID: 595150177}
+  - {fileID: 123848939}
   - {fileID: 1605882731}
   - {fileID: 245595002}
   m_Father: {fileID: 0}
@@ -4768,8 +4994,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: 1.64}
+  m_SizeDelta: {x: 160, y: 186.94}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1467838529
 MonoBehaviour:
@@ -4793,10 +5019,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -4804,7 +5030,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: "\uADC0\uC5EC\uC6B4 \uBBF8\uC5B4\uCEA3. \uADF8\uB0E5 \uADC0\uC5FD\uB2E4.
+    \uACF5\uACA9\uB825\uB3C4 \uADC0\uC5EC\uC6CC\uC694."
 --- !u!222 &1467838530
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4928,8 +5155,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: 1.64}
+  m_SizeDelta: {x: 160, y: 186.94}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1582235811
 MonoBehaviour:
@@ -4953,10 +5180,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -4964,7 +5191,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: "\uACF0. \uC5B8\uB73B \uADC0\uC5FD\uC9C0\uB9CC \uCC22\uB294\uB2E4."
 --- !u!222 &1582235812
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5380,7 +5607,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 784413893}
-  m_RootOrder: 13
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5773,8 +6000,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: 1.64}
+  m_SizeDelta: {x: 160, y: 186.94}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1793913571
 MonoBehaviour:
@@ -5798,10 +6025,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -5809,7 +6036,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: "\uBC40. \uC0AC\uC545\uD558\uB2E4. \uBB3C\uC5B4\uBC84\uB9B0\uB2E4. \uC544\uAD70\uB3C4
+    \uBB3C\uC5B4\uBC84\uB9B4 \uC218 \uC788\uC73C\uB2C8 \uC870\uC2EC!"
 --- !u!222 &1793913572
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6120,7 +6348,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 784413893}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6294,6 +6522,7 @@ GameObject:
   - component: {fileID: 1979483170}
   - component: {fileID: 1979483169}
   - component: {fileID: 1979483168}
+  - component: {fileID: 1979483171}
   m_Layer: 5
   m_Name: bear
   m_TagString: Untagged
@@ -6314,7 +6543,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1371666649}
-  m_RootOrder: 6
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6364,7 +6593,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1979483169}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1979483171}
+        m_TargetAssemblyTypeName: Sulmyeong, Assembly-CSharp
+        m_MethodName: sulmyeongOn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1979483169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6403,6 +6644,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1979483166}
   m_CullTransparentMesh: 1
+--- !u!114 &1979483171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979483166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 581dd1bcb18a24af09219bc0fed77547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dongmul: {fileID: 687065839}
+  sulmyeongCode: 7
 --- !u!1 &2102334058
 GameObject:
   m_ObjectHideFlags: 0
@@ -6511,7 +6766,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 784413893}
-  m_RootOrder: 8
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7120,7 +7375,7 @@ RectTransform:
   - {fileID: 2891691492214061306}
   - {fileID: 2891691491579415913}
   m_Father: {fileID: 1371666649}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7890,7 +8145,7 @@ RectTransform:
   - {fileID: 2891691491759996102}
   - {fileID: 2891691491060861269}
   m_Father: {fileID: 1371666649}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8688,7 +8943,7 @@ RectTransform:
   - {fileID: 2891691491229726509}
   - {fileID: 2891691492662313662}
   m_Father: {fileID: 1371666649}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
