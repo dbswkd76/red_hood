@@ -78,32 +78,32 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void EnemyDamaged(int damage)     //¸Å°³º¯¼ö Ãß°¡ , publicÀ¸·Î ¹Ù²Ù±â
+    public void EnemyDamaged(int damage)     //ï¿½Å°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ , publicï¿½ï¿½ï¿½ï¿½ ï¿½Ù²Ù±ï¿½
     {
         attacking = false;
         isHit = true;
-        m_nowhp -= damage; //damage_bear  //ÀÓÀÇ·Î ¼³Á¤ ÃßÈÄ º¯°æ ÇÊ¿ä
+        m_nowhp -= damage; //damage_bear  //ï¿½ï¿½ï¿½Ç·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½
         hit_sound.Play();
-        Debug.Log(gameObject.name+" ¸Â¾ÒÀ½");
+        Debug.Log(gameObject.name+" ï¿½Â¾ï¿½ï¿½ï¿½");
         anim.SetBool("isHit",true);
         rigid.AddForce(new Vector2(3, 3), ForceMode2D.Impulse);
         spriteRenderer.color = new Color(1, 1, 1, 0.6f);
-        gameObject.layer = LayerMask.NameToLayer("EnemyHit");  //¹«ÀûÀ¸·Î º¯°æ
+        gameObject.layer = LayerMask.NameToLayer("EnemyHit");  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         Invoke("isHitchange", 0.5f);
         Invoke("OffDamaged", 1.5f);
     }
-    void isHitchange() //¸ÂÀº »óÅÂÇØÁ¦(´Þ·Á°¨)
+    void isHitchange() //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½Þ·ï¿½ï¿½ï¿½)
     {
-        Debug.Log("¸ÂÀº »óÅÂÇØÁ¦");
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
         //isHit = false;
         anim.SetBool("isHit", false);
     }
-    void OffDamaged()   //¹«ÀûÇØÁ¦
+    void OffDamaged()   //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     {
         isHit = false;
         gameObject.layer = LayerMask.NameToLayer("Enemy");
         spriteRenderer.color = new Color(1, 1, 1, 1);
-        //rigid.velocity = new Vector2(-1, rigid.velocity.y); //´Ü¼ø ¿ÞÂÊ¹æÇâ ÀÌµ¿
+        //rigid.velocity = new Vector2(-1, rigid.velocity.y); //ï¿½Ü¼ï¿½ ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
     }
    
     void Awake()
@@ -161,7 +161,7 @@ public class Enemy : MonoBehaviour
         {
             hp_bar[i].transform.position = camera.WorldToScreenPoint(obj[i].position + new Vector3(0, 0.5f, 0));
         }
-        if (m_nowhp <= 0) // Àû »ç¸Á
+        if (m_nowhp <= 0) // ï¿½ï¿½ ï¿½ï¿½ï¿½
         {
             Enemy_count.died_wolf++;
             isAlive = false;
@@ -196,12 +196,12 @@ public class Enemy : MonoBehaviour
             {
                 if (hit.collider.CompareTag("Player"))
                 {
-                    Debug.Log("Player°¨Áö");
+                    Debug.Log("Playerï¿½ï¿½ï¿½ï¿½");
                     playerdetect = true;
                     attack_ready();
                 }
             }
-            if (hit.collider == null)   //¾Õ¿¡ ¾Æ¹«°Íµµ ¾øÀ»¶§
+            if (hit.collider == null)   //ï¿½Õ¿ï¿½ ï¿½Æ¹ï¿½ï¿½Íµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             {
                 playerdetect = false;
                 anim.SetBool("attack", false);
@@ -214,7 +214,7 @@ public class Enemy : MonoBehaviour
 
             if (isHit == false && attacking == false && playerdetect == false) 
             {
-                rigid.velocity = new Vector2(-1, rigid.velocity.y); //´Ü¼ø ¿ÞÂÊ¹æÇâ ÀÌµ¿  
+                rigid.velocity = new Vector2(-1, rigid.velocity.y); //ï¿½Ü¼ï¿½ ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ ï¿½Ìµï¿½  
 
             }
         }
@@ -240,15 +240,15 @@ public class Enemy : MonoBehaviour
     }
     void OffAttack()
     {
-        Debug.Log("offattack µ¿ÀÛ");
+        Debug.Log("offattack ï¿½ï¿½ï¿½ï¿½");
         anim.SetBool("attack", false);
         isidle = false;
         attacking = false;
         attacked = true;
         melee.SetActive(false);
-        Invoke("OffAttacked", 2f); //°ø°Ý ÄðÅ¸ÀÓ 2ÃÊ
+        Invoke("OffAttacked", 2f); //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ 2ï¿½ï¿½
     }
-    void OffAttacked() //°ø°Ý ÄðÅ¸ÀÓ
+    void OffAttacked() //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½
     {
         attacked = false;
     }

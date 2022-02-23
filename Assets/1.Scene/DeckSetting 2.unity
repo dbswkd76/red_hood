@@ -844,7 +844,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dongmul: {fileID: 687065839}
-  sulmyeongCode: 5
 --- !u!1 &271950624
 GameObject:
   m_ObjectHideFlags: 0
@@ -1158,7 +1157,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dongmul: {fileID: 0}
-  sulmyeongCode: 0
 --- !u!1 &310670932
 GameObject:
   m_ObjectHideFlags: 0
@@ -1466,7 +1464,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dongmul: {fileID: 687065839}
-  sulmyeongCode: 1
 --- !u!1 &449420834
 GameObject:
   m_ObjectHideFlags: 0
@@ -1614,7 +1611,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dongmul: {fileID: 687065839}
-  sulmyeongCode: 3
 --- !u!1 &486691504
 GameObject:
   m_ObjectHideFlags: 0
@@ -2316,7 +2312,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dongmul: {fileID: 687065839}
-  sulmyeongCode: 2
 --- !u!1 &593310418
 GameObject:
   m_ObjectHideFlags: 0
@@ -2638,7 +2633,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dongmul: {fileID: 687065839}
-  sulmyeongCode: 4
 --- !u!1 &679485552
 GameObject:
   m_ObjectHideFlags: 0
@@ -3651,7 +3645,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dongmul: {fileID: 687065839}
-  sulmyeongCode: 6
 --- !u!1 &852250120
 GameObject:
   m_ObjectHideFlags: 0
@@ -4474,7 +4467,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dongmul: {fileID: 687065839}
-  sulmyeongCode: 0
 --- !u!1 &1313603487
 GameObject:
   m_ObjectHideFlags: 0
@@ -6657,7 +6649,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dongmul: {fileID: 687065839}
-  sulmyeongCode: 7
 --- !u!1 &2102334058
 GameObject:
   m_ObjectHideFlags: 0
