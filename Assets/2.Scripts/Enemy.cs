@@ -29,6 +29,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] bool isidle = false;
     [SerializeField] bool playerdetect = false;
     [SerializeField] GameObject melee;
+    private bool touch=false;
     bool isAlive;
     private void SetEnemyStat(int maxhp, int damage)
     {
@@ -43,19 +44,40 @@ public class Enemy : MonoBehaviour
         HpBar.value = (float)m_nowhp / (float)m_maxhp;
 
     }
-    private void OnTriggerEnter2D(Collider2D col)
+    //private void OnTriggerEnter2D(Collider2D col)
+    //{
+    //    if ((col.CompareTag("Player")||col.CompareTag("PlayerAttack")) && gameObject.CompareTag("Enemy"))
+    //    {
+    //        if (m_nowhp > 0)
+    //        {
+    //            //anim.SetTrigger("attack");
+    //            //rigid.velocity = new Vector2(1, rigid.velocity.y);
+    //            EnemyDamaged(10);
+    //        }
+    //    }
+    //}
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if ((col.CompareTag("Player")||col.CompareTag("PlayerAttack")) && gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.tag.CompareTo("Player") == 0|| collision.gameObject.tag.CompareTo("PlayerAttack")==0)
         {
-            if (m_nowhp > 0)
-            {
-                //anim.SetTrigger("attack");
-                //rigid.velocity = new Vector2(1, rigid.velocity.y);
-                EnemyDamaged(10);
-            }
+            touch = true;
         }
     }
-    
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag.CompareTo("Player") == 0 || collision.gameObject.tag.CompareTo("PlayerAttack") == 0)
+        {
+            touch = true;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag.CompareTo("Player") == 0 || collision.gameObject.tag.CompareTo("PlayerAttack") == 0)
+        {
+            touch = false;
+        }
+    }
+
     public void EnemyDamaged(int damage)     //매개변수 추가 , public으로 바꾸기
     {
         attacking = false;
@@ -156,6 +178,15 @@ public class Enemy : MonoBehaviour
     }
     void FixedUpdate()
     {
+        if(touch==true)
+        {
+            if (m_nowhp > 0)
+            {
+                //anim.SetTrigger("attack");
+                //rigid.velocity = new Vector2(1, rigid.velocity.y);
+                EnemyDamaged(10);
+            }
+        }
         Debug.DrawRay(transform.position, new Vector3(-2, 0, 0), new Color(0, 1, 0));
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector3(-2, 0, 0), 2f, LayerMask.GetMask("Player"));
