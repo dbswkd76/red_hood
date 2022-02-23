@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Animal_HPbar : MonoBehaviour
-{
+{   
+    Animal_life life;
     public Transform player;
     public Slider hpbar;
     float max_Hp;

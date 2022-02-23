@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Animal_move : MonoBehaviour
-{
+{   
+    Animal_life life;
     public Animator animator;
     public float speed;
     float speed_init;
-    bool area; //¿µ¿ª¾È¿¡ »ó´ë°¡ ÀÖ´ÂÁö
+    bool area; //ï¿½ï¿½ï¿½ï¿½ï¿½È¿ï¿½ ï¿½ï¿½ë°¡ ï¿½Ö´ï¿½ï¿½ï¿½
     public Transform pos;
     AudioSource attacksound;
 
@@ -16,6 +17,7 @@ public class Animal_move : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        life = GetComponent<Animal_life>();
         area = false;
         speed_init = speed;
     }
@@ -24,7 +26,7 @@ public class Animal_move : MonoBehaviour
     {
         transform.Translate(Vector2.right * speed * Time.deltaTime * 0.1F);
     }
-    public Vector2 boxsize; //°ø°Ý ½ÃÀÛ ¹üÀ§
+    public Vector2 boxsize; //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     private float waitingtime = 2;
 
     private void FixedUpdate()
@@ -32,8 +34,8 @@ public class Animal_move : MonoBehaviour
         if (area == true)
         {
             speed = 0F;
-            animator.SetBool("run", false); // ÀÏ´Ü Á¤Áö
-            // °ø°Ý or  Àû Ã¼·Â -= µ¥¹ÌÁö                 
+            animator.SetBool("run", false); // ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½
+            // ï¿½ï¿½ï¿½ï¿½ or  ï¿½ï¿½ Ã¼ï¿½ï¿½ -= ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½                 
             if (curtime <= 0)                
             {                    
                 Collider2D[] collider2D = Physics2D.OverlapBoxAll(pos.position, boxsize, 0);
@@ -45,7 +47,7 @@ public class Animal_move : MonoBehaviour
                     animator.SetTrigger("attack");
                     animator.SetBool("run", false);
                     attacksound.Play();
-                    Animal_life.attack = true; // °ø°Ý                    
+                    Animal_life.attack = true; // ï¿½ï¿½ï¿½ï¿½                    
                 }
             }            
             else
@@ -55,13 +57,13 @@ public class Animal_move : MonoBehaviour
         }
         if (area == false)
         {
-            if (Animal_life.NowHP == 0) // »ç¸Á ¾Ö´Ï¸ÞÀÌ¼Ç, Á¤Áö
+            if (life.NowHP == 0) // ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½, ï¿½ï¿½ï¿½ï¿½
             {
                 speed = 0;
                 animator.SetBool("die", true);
                 Invoke("Destroy", 1.5f);
             }
-            else // ´Ù½Ã ÁøÇà
+            else // ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½
             {
                 speed = speed_init;
                 animator.SetBool("run", true);
@@ -76,7 +78,7 @@ public class Animal_move : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
-    //Àû±º Ãæµ¹ ÆÇÁ¤
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ ï¿½ï¿½ï¿½ï¿½
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag.CompareTo("enemy") == 0)
