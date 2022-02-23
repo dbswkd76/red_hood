@@ -537,7 +537,6 @@ MonoBehaviour:
   HpBar: {fileID: 0}
   wolf_die: {fileID: 0}
   hit_sound: {fileID: 0}
-  claw_sound: {fileID: 0}
   obj: []
   hp_bar: []
   isHit: 0
@@ -4197,7 +4196,6 @@ MonoBehaviour:
   HpBar: {fileID: 390304773}
   wolf_die: {fileID: 0}
   hit_sound: {fileID: 0}
-  claw_sound: {fileID: 0}
   obj:
   - {fileID: 696015376}
   hp_bar:
@@ -8484,7 +8482,6 @@ MonoBehaviour:
   HpBar: {fileID: 1680718680}
   wolf_die: {fileID: 0}
   hit_sound: {fileID: 0}
-  claw_sound: {fileID: 0}
   obj:
   - {fileID: 1434838987}
   hp_bar:
@@ -13700,7 +13697,7 @@ GameObject:
   - component: {fileID: 4724968100233475366}
   m_Layer: 9
   m_Name: UnitRoot
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
