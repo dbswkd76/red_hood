@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class deckInfo : MonoBehaviour
 {
-    public int[] DeckArr = new int [] {10, 10, 10};
+    static public int[] DeckArr = new int [] {10, 10, 10};
 }

@@ -337,9 +337,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f5aae6c263fe8645acd4f028a309278, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 0
-  NowHP: 0
+  MaxHP: 110
+  NowHP: 110
   animator: {fileID: 9126748477042453623}
+  attack: 0
   range: 0
 --- !u!82 &2153203576365232392
 AudioSource:

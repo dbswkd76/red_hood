@@ -304,9 +304,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a4156901bc956c49bd0222e94299f70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 8633743628785409828}
   speed: 0
-  pos: {fileID: 0}
+  pos: {fileID: 8544005948731327752}
   attacksound: {fileID: -7794585321664270663}
   cooltime: 0.5
   boxsize: {x: 0, y: 0}
@@ -322,7 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 199cbcaec3774e64fb5890c9caf82da6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 8544005948731327752}
   hpbar: {fileID: 0}
   canvas: {fileID: 0}
 --- !u!114 &-3435398269800919657
@@ -337,9 +337,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f5aae6c263fe8645acd4f028a309278, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 0
-  NowHP: 0
-  animator: {fileID: 0}
+  MaxHP: 70
+  NowHP: 70
+  animator: {fileID: 8633743628785409828}
+  attack: 0
   range: 0
 --- !u!82 &-7794585321664270663
 AudioSource:
