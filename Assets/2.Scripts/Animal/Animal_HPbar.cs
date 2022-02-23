@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Animal_HPbar : MonoBehaviour
 {
+    Animal_life life;
     public Transform player;
     public Slider hpbar;
     float max_Hp;
@@ -17,7 +18,7 @@ public class Animal_HPbar : MonoBehaviour
 
     private void Start()
     {
-        Animal_life life = GetComponent<Animal_life>();
+        life = GetComponent<Animal_life>();
         life.MaxHP = max_Hp;
         life.NowHP = now_Hp;
         camera = Camera.main;
@@ -26,7 +27,6 @@ public class Animal_HPbar : MonoBehaviour
 
     void Update()
     {
-        Animal_life life = GetComponent<Animal_life>();
         now_Hp = life.NowHP;
 
         hpbar.value = now_Hp / max_Hp;

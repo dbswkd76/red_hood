@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Animal_move : MonoBehaviour
 {
+    Animal_life life;
     public Animator animator;
     public float speed;
     float speed_init;
@@ -16,6 +17,7 @@ public class Animal_move : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        life = GetComponent<Animal_life>();
         area = false;
         speed_init = speed;
     }
@@ -29,8 +31,6 @@ public class Animal_move : MonoBehaviour
 
     private void FixedUpdate()
     {
-
-        Animal_life life = GetComponent<Animal_life>();
         if (area == true)
         {
             speed = 0F;
@@ -47,7 +47,7 @@ public class Animal_move : MonoBehaviour
                     animator.SetTrigger("attack");
                     animator.SetBool("run", false);
                     attacksound.Play();
-                    Animal_life.attack = true; // 공격                    
+                    life.attack = true; // 공격                    
                 }
             }            
             else

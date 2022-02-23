@@ -8,7 +8,7 @@ public class Animal_life : MonoBehaviour
     public float MaxHP;
     public float NowHP;
     public Animator animator;
-    static public bool attack = false;
+    public bool attack = false;
     public float range;
 
     void Start()
