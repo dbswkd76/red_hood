@@ -16,7 +16,7 @@ public class State : MonoBehaviour
     private float currentFill;
     public float MyMaxValue { get; set; }
 
-    public float MyCurrentValue // 현재 체력 마나
+    public float MyCurrentValue 
     {
         get
         {
