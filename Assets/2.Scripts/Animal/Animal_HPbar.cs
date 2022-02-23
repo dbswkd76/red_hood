@@ -19,8 +19,8 @@ public class Animal_HPbar : MonoBehaviour
     private void Start()
     {
         life = GetComponent<Animal_life>();
-        life.MaxHP = max_Hp;
-        life.NowHP = now_Hp;
+        max_Hp = life.MaxHP;
+        now_Hp = life.NowHP;
         camera = Camera.main;
         HPbar = Instantiate(hpbar, canvas.transform).GetComponent<RectTransform>();
     }

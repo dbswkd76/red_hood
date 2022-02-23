@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 5162232793730445651}
-  speed: 0
+  speed: 7
   pos: {fileID: 5107229924035731041}
   attacksound: {fileID: -5179806591097885556}
   cooltime: 0.5
