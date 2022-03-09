@@ -9,6 +9,8 @@ TagManager:
   - BackGround
   - EnemyAttack
   - Info
+  - enemy
+  - Bullet
   layers:
   - Default
   - TransparentFX
