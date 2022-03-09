@@ -11,6 +11,7 @@ public class Animal_move : MonoBehaviour
     bool area; //영역안에 상대가 있는지
     public Transform pos;
     public AudioSource attacksound;
+    public GameObject balsa;
 
     private float curtime;
     public float cooltime = 0.5f;
@@ -31,6 +32,7 @@ public class Animal_move : MonoBehaviour
 
     private void FixedUpdate()
     {
+        GameObject balsacopy;
         if (area == true)
         {
             speed = 0F;
@@ -47,11 +49,13 @@ public class Animal_move : MonoBehaviour
                     animator.SetTrigger("attack");
                     animator.SetBool("run", false);
                     attacksound.Play();
-                    life.attack = true; // 공격                    
+                    life.attack = true; // 공격
+                    balsacopy = Instantiate(balsa, new Vector2(0, 0), Quaternion.identity);
                 }
             }            
             else
-            {                   
+            {
+                life.attack = false;
                 curtime -= Time.deltaTime;
             }
         }
