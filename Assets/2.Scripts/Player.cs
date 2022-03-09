@@ -135,7 +135,7 @@ public class Player : MonoBehaviour
                 mana.MyCurrentValue += 10;
             }
 
-            if (Input.GetKeyDown(KeyCode.Z))  //기본공격
+         /*   if (Input.GetKeyDown(KeyCode.Z))  //기본공격
             {
                 animator.SetTrigger("Attack");
                 animator.SetFloat("AttackState", 0);
@@ -176,7 +176,7 @@ public class Player : MonoBehaviour
                 animator.SetFloat("AttackState", 1);
                 animator.SetFloat("NormalState", 0);
                 animator.SetFloat("SkillState", 1);
-            }
+            }*/
         }
 
     } //키보드입력
