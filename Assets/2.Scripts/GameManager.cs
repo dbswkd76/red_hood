@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public void SceneChangeRound(){
         Debug.Log("라운드선택");
-        SceneManager.LoadScene("JunseokSample");
+        SceneManager.LoadScene("uitest");
     }
     public void SceneDeckSetting(){
         Debug.Log("덱셋팅");
