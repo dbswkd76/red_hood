@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/1.Scene/JunseokSample.unity
     guid: 74e729a02a7455941a73edaa78f7f814
+  - enabled: 1
+    path: Assets/1.Scene/uitest.unity
+    guid: 411f4ec17af044c4187fe7c86b1faa9c
   m_configObjects: {}
