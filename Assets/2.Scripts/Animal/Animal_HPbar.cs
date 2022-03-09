@@ -37,7 +37,7 @@ public class Animal_HPbar : MonoBehaviour
         }
         if(hpbar.value == 0)
         {
-            hpbar.IsDestroyed();
+            Destroy(hpbar);
         }
     }
 }
