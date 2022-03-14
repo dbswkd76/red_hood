@@ -11,7 +11,9 @@ public class Animal_move : MonoBehaviour
     bool area; //영역안에 상대가 있는지
     public Transform pos;
     public AudioSource attacksound;
-    public GameObject balsa;
+
+    public float damage;    //공격력
+    public GameObject balsa;    //공격 발사체
 
     private float curtime;
     public float cooltime = 0.5f;
@@ -50,7 +52,9 @@ public class Animal_move : MonoBehaviour
                     animator.SetBool("run", false);
                     attacksound.Play();
                     life.attack = true; // 공격
-                    balsacopy = Instantiate(balsa, new Vector2(0, 0), Quaternion.identity);
+
+                    balsacopy = Instantiate(balsa);
+                    balsacopy.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 2000);
                 }
             }            
             else
@@ -85,21 +89,21 @@ public class Animal_move : MonoBehaviour
     //적군 충돌 판정
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag.CompareTo("enemy") == 0)
+        if (collision.gameObject.tag.CompareTo("Enemy") == 0)
         {
             area = true;
         }
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.tag.CompareTo("enemy") == 0)
+        if (collision.gameObject.tag.CompareTo("Enemy") == 0)
         {
             area = true;
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag.CompareTo("enemy") == 0)
+        if (collision.gameObject.tag.CompareTo("Enemy") == 0)
         {
             area = false;
         }
