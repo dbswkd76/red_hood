@@ -6,6 +6,7 @@ public class manipulate : MonoBehaviour
 {
     static int idx = 0;
     [SerializeField] GameObject[] Panel = new GameObject[5];
+    [SerializeField] GameObject DeckPanel;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,8 +20,17 @@ public class manipulate : MonoBehaviour
         {
            
             Panel[idx].SetActive(false);
+            if (idx == 1)
+            {
+                DeckPanel.SetActive(true);
+            }
+            else if(idx==4)
+            {
+                DeckPanel.SetActive(false);
+            }
             idx++;
             Panel[idx].SetActive(true);
+            
         }
     }
 }
