@@ -175,6 +175,7 @@ MonoBehaviour:
   speed: 10
   pos: {fileID: 4787390581292447638}
   attacksound: {fileID: -1344671886220143642}
+  balsa: {fileID: 7097654462494291720, guid: 21c0db96303b61c4b988af7e00ab9982, type: 3}
   cooltime: 0.5
   boxsize: {x: 0, y: 0}
 --- !u!114 &8759545990009785968
@@ -209,6 +210,7 @@ MonoBehaviour:
   animator: {fileID: 4839750035547674770}
   attack: 0
   range: 0
+  damage: 0
 --- !u!82 &-1344671886220143642
 AudioSource:
   m_ObjectHideFlags: 0

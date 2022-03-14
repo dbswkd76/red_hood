@@ -29,18 +29,18 @@ public class Animal_life : MonoBehaviour
             animator.SetBool("die", true);
         }
     }
-    public void Damage()
-    {
-        //RaycastHit2D animal_attack = Physics2D.Raycast(transform.position, new Vector2(-1 * range, 2));
-        //if (animal_attack.collider != null)
-        //{
-        //    Debug.Log(animal_attack.collider.name);
-        //}
-        NowHP = NowHP - damage;
+    //public void Damage()
+    //{
+    //    //RaycastHit2D animal_attack = Physics2D.Raycast(transform.position, new Vector2(-1 * range, 2));
+    //    //if (animal_attack.collider != null)
+    //    //{
+    //    //    Debug.Log(animal_attack.collider.name);
+    //    //}
+    //    //NowHP = NowHP - damage;
 
-        // 생명 받고, 남은 생명 = 생명 - 적 공격력 
-        // 적 공격력 -> 충돌한 발사체 스프라이트에서 받아오기 
-        // 애니멀도 발사체로 공격하는 걸로 해야 하나? 
-        // 
-    }
+    //    // 생명 받고, 남은 생명 = 생명 - 적 공격력 
+    //    // 적 공격력 -> 충돌한 발사체 스프라이트에서 받아오기 
+    //    // 애니멀도 발사체로 공격하는 걸로 해야 하나? 
+    //    // 
+    //}
 }
