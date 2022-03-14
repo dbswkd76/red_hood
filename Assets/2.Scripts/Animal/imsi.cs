@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class imsi : MonoBehaviour
 {
-    public void damage()
-    {
+    public float nowhp;
+    public float maxhp;
 
+    private void Start()
+    {
+        nowhp = maxhp;        
+    }
+
+    public void Damage(float damage)
+    {
+        nowhp -= damage;
     }
 }
