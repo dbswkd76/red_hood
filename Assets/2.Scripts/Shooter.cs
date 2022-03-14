@@ -30,7 +30,7 @@ public class Shooter : MonoBehaviour
     }
     void ShooterProjectile()
     {
-        Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f,0));
+        Ray ray = cam.ViewportPointToRay(new Vector2(1f,1f));
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit))
