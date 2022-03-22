@@ -20,7 +20,7 @@ public class Panel_GameOver : MonoBehaviour
 
     public void OnClick_Retry() // 재도전 함수
     {
-        SceneManager.LoadScene("yunjang"); 
+        SceneManager.LoadScene(0); 
     }
    
 }

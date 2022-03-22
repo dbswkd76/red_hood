@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/1.Scene/uitest.unity
     guid: 411f4ec17af044c4187fe7c86b1faa9c
+  - enabled: 1
+    path: Assets/1.Scene/yunsample.unity
+    guid: 985e2beec54500048a30bc65de37b6b4
   m_configObjects: {}

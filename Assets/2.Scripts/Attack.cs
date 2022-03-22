@@ -10,7 +10,8 @@ public class Attack : MonoBehaviour
     public float coolTime = 0.5f;
     public Transform pos;
     public Vector2 boxSize;
-    
+    public Enemy enemy;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +31,7 @@ public class Attack : MonoBehaviour
                 foreach (Collider2D collider in collider2Ds)
                 {
                     Debug.Log(collider.tag);
+                    enemy.EnemyDamaged(10);
                 }
                 animator.SetTrigger("Attack");
                 animator.SetFloat("AttackState", 0);
