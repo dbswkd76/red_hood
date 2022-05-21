@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] int m_nowhp;
     [SerializeField] int m_maxhp;
     //[SerializeField] int m_speed;
-    [SerializeField] int m_damage;
+    public int m_damage;
     [SerializeField] Slider HpBar;
     //List<Transform> m_enemyList = new List<Transform>();
     //List<Slider> m_hpBarList = new List<Slider>();
@@ -32,7 +32,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] GameObject melee;
     private bool touch=false;
     bool isAlive;
-    public Player player;
     private void SetEnemyStat(int maxhp, int damage)
     {
         m_nowhp = maxhp;
@@ -62,48 +61,53 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag.CompareTo("Player") == 0 || collision.gameObject.tag.CompareTo("PlayerAttack") == 0) 
         {
-            Debug.Log("Touch True");
-            touch = true;
+            if (m_nowhp > 0)
+            {
+                //anim.SetTrigger("attack");
+                //rigid.velocity = new Vector2(1, rigid.velocity.y);
+                
+                EnemyDamaged(10);
+            }
         }
     }
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag.CompareTo("Player") == 0 || collision.gameObject.tag.CompareTo("PlayerAttack") == 0)
-        {
-            Debug.Log("Touch True");
-            touch = true;
-        }
-    }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag.CompareTo("Player") == 0 || collision.gameObject.tag.CompareTo("PlayerAttack") == 0)
-        {
-            Debug.Log("Touch false");
-            touch = false;
-        }
-    }
+    //private void OnCollisionStay2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.tag.CompareTo("Player") == 0 || collision.gameObject.tag.CompareTo("PlayerAttack") == 0)
+    //    {
+    //        Debug.Log("Touch True");
+    //        touch = true;
+    //    }
+    //}
+    //private void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.tag.CompareTo("Player") == 0 || collision.gameObject.tag.CompareTo("PlayerAttack") == 0)
+    //    {
+    //        Debug.Log("Touch false");
+    //        touch = false;
+    //    }
+    //}
 
-    public void EnemyDamaged(int damage)     //�Ű����� �߰� , public���� �ٲٱ�
+    public void EnemyDamaged(int damage)     
     {
         attacking = false;
         isHit = true;
-        m_nowhp -= damage; //damage_bear  //���Ƿ� ���� ���� ���� �ʿ�
+        m_nowhp -= damage; //damage_bear  
         hit_sound.Play();
         Debug.Log(gameObject.name+" HIT");
         anim.SetBool("isHit",true);
         rigid.AddForce(new Vector2(3, 3), ForceMode2D.Impulse);
         spriteRenderer.color = new Color(1, 1, 1, 0.6f);
-        gameObject.layer = LayerMask.NameToLayer("EnemyHit");  //�������� ����
+        gameObject.layer = LayerMask.NameToLayer("EnemyHit");  
         Invoke("isHitchange", 0.5f);
         Invoke("OffDamaged", 1.5f);
     }
-    void isHitchange() //���� ��������(�޷���)
+    void isHitchange() 
     {
         Debug.Log("���� ��������");
         //isHit = false;
         anim.SetBool("isHit", false);
     }
-    void OffDamaged()   //��������
+    void OffDamaged()   
     {
         isHit = false;
         gameObject.layer = LayerMask.NameToLayer("Enemy");
@@ -183,15 +187,16 @@ public class Enemy : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if(touch==true)
-        {
-            if (m_nowhp > 0)
-            {
-                //anim.SetTrigger("attack");
-                //rigid.velocity = new Vector2(1, rigid.velocity.y);
-                EnemyDamaged(10);
-            }
-        }
+        //if(touch==true)
+        //{
+        //    if (m_nowhp > 0)
+        //    {
+        //        //anim.SetTrigger("attack");
+        //        //rigid.velocity = new Vector2(1, rigid.velocity.y);
+
+        //        EnemyDamaged(10);
+        //    }
+        //}
         Debug.DrawRay(transform.position, new Vector3(-2, 0, 0), new Color(0, 1, 0));
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector3(-2, 0, 0), 2f, LayerMask.GetMask("Player"));
