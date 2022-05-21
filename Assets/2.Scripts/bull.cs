@@ -24,7 +24,7 @@ public class bull : MonoBehaviour
         {
                 if(ray.collider.tag =="Enemy")
             {
-                enemy.EnemyDamaged(10);
+              //  enemy.EnemyDamaged(10);
                 Debug.Log("hit");
             }
             DestroyBullet();

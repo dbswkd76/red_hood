@@ -9,7 +9,7 @@ public class bullet : MonoBehaviour
     public float cooltime;
     private float curtime;
     public float cost;
-
+    public Player die;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,9 +21,12 @@ public class bullet : MonoBehaviour
     {
         if (curtime <= 0)
         {
-            if (Input.GetKey(KeyCode.X))
+            if (!die)
             {
-                Instantiate(shoot, pos.position, transform.rotation);
+                if (Input.GetKey(KeyCode.X))
+                {
+                    Instantiate(shoot, pos.position, transform.rotation);
+                }
             }
             curtime = cooltime;
         }
