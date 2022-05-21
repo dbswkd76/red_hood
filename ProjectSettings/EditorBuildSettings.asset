@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/1.Scene/uitest.unity
     guid: 411f4ec17af044c4187fe7c86b1faa9c
+  - enabled: 1
+    path: Assets/1.Scene/RoundSelect.unity
+    guid: 878a1b2dfdcd74deebbe50a10b664413
+  - enabled: 1
+    path: Assets/1.Scene/junseok123.unity
+    guid: b3df5e09abb872048b93ed01959bb862
   m_configObjects: {}
