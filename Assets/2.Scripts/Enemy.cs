@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] int m_nowhp;
@@ -58,8 +59,9 @@ public class Enemy : MonoBehaviour
     //}
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag.CompareTo("Player") == 0|| collision.gameObject.tag.CompareTo("PlayerAttack")==0)
+        if (collision.gameObject.tag.CompareTo("Player") == 0 || collision.gameObject.tag.CompareTo("PlayerAttack") == 0) 
         {
+            Debug.Log("Touch True");
             touch = true;
         }
     }
@@ -67,6 +69,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag.CompareTo("Player") == 0 || collision.gameObject.tag.CompareTo("PlayerAttack") == 0)
         {
+            Debug.Log("Touch True");
             touch = true;
         }
     }
@@ -74,6 +77,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag.CompareTo("Player") == 0 || collision.gameObject.tag.CompareTo("PlayerAttack") == 0)
         {
+            Debug.Log("Touch false");
             touch = false;
         }
     }
@@ -84,7 +88,7 @@ public class Enemy : MonoBehaviour
         isHit = true;
         m_nowhp -= damage; //damage_bear  //���Ƿ� ���� ���� ���� �ʿ�
         hit_sound.Play();
-        Debug.Log(gameObject.name+" �¾���");
+        Debug.Log(gameObject.name+" HIT");
         anim.SetBool("isHit",true);
         rigid.AddForce(new Vector2(3, 3), ForceMode2D.Impulse);
         spriteRenderer.color = new Color(1, 1, 1, 0.6f);
@@ -148,7 +152,7 @@ public class Enemy : MonoBehaviour
         //    m_hpBarList[i].value = (float)nowhp[i] / (float)maxhp[i];
         //}
     }
-    
+   
     void Update()
     {
         HandleHp();
@@ -196,7 +200,7 @@ public class Enemy : MonoBehaviour
             {
                 if (hit.collider.CompareTag("Player"))
                 {
-                    Debug.Log("Player����");
+                    Debug.Log("Player collide");
                     playerdetect = true;
                     attack_ready();
                 }
@@ -240,7 +244,7 @@ public class Enemy : MonoBehaviour
     }
     void OffAttack()
     {
-        Debug.Log("offattack ����");
+        Debug.Log("offattack On");
         anim.SetBool("attack", false);
         isidle = false;
         attacking = false;

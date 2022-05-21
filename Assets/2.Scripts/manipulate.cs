@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class manipulate : MonoBehaviour
 {
     static int idx = 0;
@@ -12,7 +12,10 @@ public class manipulate : MonoBehaviour
     {
         
     }
-
+    public void GameStartButton()
+    {
+        SceneManager.LoadScene("Round Select");
+    }
     // Update is called once per frame
     void Update()
     {
