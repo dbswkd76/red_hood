@@ -31,7 +31,7 @@ public class Attack : MonoBehaviour
                 foreach (Collider2D collider in collider2Ds)
                 {
                     Debug.Log(collider.tag);
-                    enemy.EnemyDamaged(10);
+                   // enemy.EnemyDamaged(10);
                 }
                 animator.SetTrigger("Attack");
                 animator.SetFloat("AttackState", 0);

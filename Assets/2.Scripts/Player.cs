@@ -219,6 +219,11 @@ public class Player : MonoBehaviour
         Time.timeScale = 0f;
         panel_GameOver.Show();
     }
+
+    public void attacked(int damage)
+    {
+        health.MyCurrentValue -= damage;
+    }
 }
 
 

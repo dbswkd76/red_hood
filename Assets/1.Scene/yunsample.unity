@@ -6949,8 +6949,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shoot: {fileID: 8604199537540328497, guid: 73aea480a6d18ab489db7a86574b6995, type: 3}
   pos: {fileID: 673786647}
-  cooltime: 0
+  cooltime: 0.1
   cost: 0
+  die: {fileID: 0}
 --- !u!1 &538066800
 GameObject:
   m_ObjectHideFlags: 0
@@ -16938,6 +16939,10 @@ PrefabInstance:
     - target: {fileID: 652683861022096290, guid: 5381e5549b2495f4dad51be667af0b3e, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 652683861028735524, guid: 5381e5549b2495f4dad51be667af0b3e, type: 3}
+      propertyPath: m_damage
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 652683861028735527, guid: 5381e5549b2495f4dad51be667af0b3e, type: 3}
       propertyPath: m_RootOrder

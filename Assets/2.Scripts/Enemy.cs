@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] GameObject melee;
     private bool touch=false;
     bool isAlive;
+    public Player player;
     private void SetEnemyStat(int maxhp, int damage)
     {
         m_nowhp = maxhp;
@@ -184,7 +185,7 @@ public class Enemy : MonoBehaviour
             {
                 //anim.SetTrigger("attack");
                 //rigid.velocity = new Vector2(1, rigid.velocity.y);
-               // EnemyDamaged(10);
+                EnemyDamaged(10);
             }
         }
         Debug.DrawRay(transform.position, new Vector3(-2, 0, 0), new Color(0, 1, 0));
