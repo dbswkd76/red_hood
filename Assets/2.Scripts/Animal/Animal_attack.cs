@@ -5,7 +5,7 @@ using UnityEngine;
 public class Animal_attack : MonoBehaviour
 {
     public float damage = 5;
-    Enemy EnemyLife;
+    imsi EnemyLife;
     GameObject animal;
 
     private void Start()
@@ -18,7 +18,7 @@ public class Animal_attack : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        EnemyLife = collision.gameObject.GetComponent<Enemy>();
+        EnemyLife = collision.gameObject.GetComponent<imsi>();
 
         if (collision.gameObject.tag.CompareTo("Enemy") == 0)
         {
