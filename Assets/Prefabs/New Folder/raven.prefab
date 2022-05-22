@@ -308,8 +308,9 @@ MonoBehaviour:
   speed: 10
   pos: {fileID: 8544005948731327752}
   attacksound: {fileID: -7794585321664270663}
-  balsa: {fileID: 7097654462494291720, guid: 21c0db96303b61c4b988af7e00ab9982, type: 3}
-  cooltime: 0.5
+  damage: 0
+  balsa: {fileID: 7097654462494291720, guid: 5e0a1c8527e871d41a7de44862f61aec, type: 3}
+  cooltime: 3
   boxsize: {x: 0, y: 0}
 --- !u!114 &8539530237034862985
 MonoBehaviour:

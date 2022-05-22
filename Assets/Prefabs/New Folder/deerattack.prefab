@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -2670252302359810420}
   - component: {fileID: 4590112040246412830}
   m_Layer: 9
-  m_Name: "\uB3D9\uBB3C\uACF5\uACA9"
+  m_Name: deerattack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87168c57f4548e2488d868d786281c77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 15
 --- !u!58 &-2670252302359810420
 CircleCollider2D:
   m_ObjectHideFlags: 0

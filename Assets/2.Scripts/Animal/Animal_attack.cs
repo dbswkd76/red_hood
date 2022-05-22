@@ -7,6 +7,7 @@ public class Animal_attack : MonoBehaviour
     public float damage = 5;
     imsi EnemyLife;
     GameObject animal;
+
     private void Start()
     {
        // attack_balsa = animal.Animal_move.damage;

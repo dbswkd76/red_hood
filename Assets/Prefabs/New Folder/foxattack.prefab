@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -2670252302359810420}
   - component: {fileID: 4590112040246412830}
   m_Layer: 9
-  m_Name: "\uB3D9\uBB3C\uACF5\uACA9"
+  m_Name: foxattack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
