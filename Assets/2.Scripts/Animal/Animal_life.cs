@@ -29,6 +29,8 @@ public class Animal_life : MonoBehaviour
             animator.SetBool("die", true);
         }
     }
+
+    
     //public void Damage()
     //{
     //    //RaycastHit2D animal_attack = Physics2D.Raycast(transform.position, new Vector2(-1 * range, 2));
