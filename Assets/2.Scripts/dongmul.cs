@@ -66,6 +66,7 @@ public class dongmul : MonoBehaviour
                 skill2[i].SetActive(false);
                 skill3[i].SetActive(false);
             }
+            
                 
             for (int i = 0; i<3; i++){
                 if (0<=deckInfo.SkillArr[i] && deckInfo.SkillArr[i]<=8 && setAS){
