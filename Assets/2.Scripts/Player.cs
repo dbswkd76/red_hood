@@ -95,6 +95,23 @@ public class Player : MonoBehaviour
         }
 
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag.CompareTo("Enemy") == 0 || collision.gameObject.tag.CompareTo("EnemyAttack") == 0)
+        {
+            if (health.MyCurrentValue > 0)
+            {
+                PlayerDamaged(10);
+            }
+        }
+    }
+    public void PlayerDamaged(int damage)
+    {
+        isUnBeatTime = true;
+        StartCoroutine("UnBeatTime");
+        health.MyCurrentValue -= damage;
+    }
+
     public void HandleLayers()
     {
         if (IsMoving)
@@ -220,10 +237,7 @@ public class Player : MonoBehaviour
         panel_GameOver.Show();
     }
 
-    public void attacked(int damage)
-    {
-        health.MyCurrentValue -= damage;
-    }
+    
 }
 
 
