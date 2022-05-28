@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 142630952}
   - component: {fileID: 142630951}
   - component: {fileID: 142630950}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,7 +318,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 145436773}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -581,6 +581,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\uC801\uAD701 (1)"
       objectReference: {fileID: 0}
+    - target: {fileID: 1761189866715896452, guid: 001d15c1df9e0f7479c65eb8e11e6ae7, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1761189866715896452, guid: 001d15c1df9e0f7479c65eb8e11e6ae7, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 1761189866715896455, guid: 001d15c1df9e0f7479c65eb8e11e6ae7, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -682,6 +690,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: fox
       objectReference: {fileID: 0}
+    - target: {fileID: 4791448370383521278, guid: 31973d43acde3d44288ef66c69fcd9bb, type: 3}
+      propertyPath: cooltime
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8759545990009785968, guid: 31973d43acde3d44288ef66c69fcd9bb, type: 3}
       propertyPath: hpbar
       value: 
@@ -703,7 +715,7 @@ GameObject:
   - component: {fileID: 483455594}
   - component: {fileID: 483455596}
   - component: {fileID: 483455595}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -863,7 +875,7 @@ GameObject:
   - component: {fileID: 665450611}
   - component: {fileID: 665450610}
   - component: {fileID: 665450609}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Button2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -903,6 +915,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49a9008d9e68cac4caffcc6f320502ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nowhp: 0
+  maxhp: 0
 --- !u!114 &665450610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1061,6 +1075,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\uC801\uAD701"
       objectReference: {fileID: 0}
+    - target: {fileID: 1761189866715896452, guid: 001d15c1df9e0f7479c65eb8e11e6ae7, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 1761189866715896453, guid: 001d15c1df9e0f7479c65eb8e11e6ae7, type: 3}
       propertyPath: m_Size.x
       value: 2
@@ -1120,7 +1138,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 862997488}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1213,6 +1231,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c05d9133e87802543b381fcea3155b3d, type: 3}
+--- !u!1 &911128202 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1761189866715896452, guid: 001d15c1df9e0f7479c65eb8e11e6ae7, type: 3}
+  m_PrefabInstance: {fileID: 459443603}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &911128208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911128202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49a9008d9e68cac4caffcc6f320502ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nowhp: 20
+  maxhp: 20
 --- !u!1 &980458278
 GameObject:
   m_ObjectHideFlags: 0
@@ -1224,7 +1261,7 @@ GameObject:
   - component: {fileID: 980458279}
   - component: {fileID: 980458281}
   - component: {fileID: 980458280}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1304,7 +1341,7 @@ GameObject:
   - component: {fileID: 1007843521}
   - component: {fileID: 1007843523}
   - component: {fileID: 1007843522}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1385,7 +1422,7 @@ GameObject:
   - component: {fileID: 1206807670}
   - component: {fileID: 1206807672}
   - component: {fileID: 1206807671}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1461,7 +1498,7 @@ GameObject:
   - component: {fileID: 1207880516}
   - component: {fileID: 1207880518}
   - component: {fileID: 1207880517}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1680,7 +1717,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1734239802}
   - component: {fileID: 1734239803}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: HPBAR 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1878,7 +1915,7 @@ GameObject:
   - component: {fileID: 1945686623}
   - component: {fileID: 1945686622}
   - component: {fileID: 1945686621}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1969,6 +2006,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &2109987292 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1761189866715896452, guid: 001d15c1df9e0f7479c65eb8e11e6ae7, type: 3}
+  m_PrefabInstance: {fileID: 792210435}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2109987298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109987292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49a9008d9e68cac4caffcc6f320502ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nowhp: 20
+  maxhp: 20
 --- !u!1001 &2110712011
 PrefabInstance:
   m_ObjectHideFlags: 0
