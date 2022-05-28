@@ -43,9 +43,8 @@ public class Animal_move : MonoBehaviour
             if (curtime <= 0)                
             {                    
                 Collider2D[] collider2D = Physics2D.OverlapBoxAll(pos.position, boxsize, 0);
-                balsacopy = Instantiate(balsa);
-                balsacopy.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 2000);
-
+                balsacopy = Instantiate(balsa, gameObject.transform);
+                
                 foreach (Collider2D collider in collider2D)
                 {
                     Debug.LogError(collider.tag);

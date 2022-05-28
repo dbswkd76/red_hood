@@ -4,25 +4,19 @@ using UnityEngine;
 
 public class Animal_attack : MonoBehaviour
 {
-    public float damage = 5;
-    imsi EnemyLife;
+    public int damage;
+    Enemy EnemyLife;
     GameObject animal;
 
-    private void Start()
-    {
-       // attack_balsa = animal.Animal_move.damage;
-    }
     private void Update()
     {
-        
+        transform.Translate(Vector2.right * Time.deltaTime);
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collider2D)
     {
-        EnemyLife = collision.gameObject.GetComponent<imsi>();
-
-        if (collision.gameObject.tag.CompareTo("Enemy") == 0)
+        if (collider2D.gameObject.tag.CompareTo("Enemy") == 0)
         {
-            EnemyLife.Damage(damage);
+            EnemyLife.EnemyDamaged(damage);
             Destroy(gameObject);
         }
     }
