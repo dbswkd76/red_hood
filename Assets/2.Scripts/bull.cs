@@ -8,12 +8,12 @@ public class bull : MonoBehaviour
     public float speed;
     public float distance;
     public LayerMask isLayer;
-    public Enemy enemy;
-
+    
+    [SerializeField] GameObject attackbox;
 
     void Start()
     {
-        Invoke("DestroyBullet", 2);
+        
     }
 
     // Update is called once per frame
@@ -26,8 +26,11 @@ public class bull : MonoBehaviour
             {
               //  enemy.EnemyDamaged(10);
                 Debug.Log("hit");
+                attackbox.SetActive(true);
+                Invoke("meleeoff", 0.5f);
+
             }
-            DestroyBullet();
+            Invoke("DestroyBullet",0.02f);
         }
         if (transform.rotation.y!= 0)
         {
@@ -38,6 +41,10 @@ public class bull : MonoBehaviour
             transform.Translate(transform.right * -1 * speed * Time.deltaTime);
 
         }
+    }
+    void attackboxoff()
+    {
+        attackbox.SetActive(false);
     }
     void DestroyBullet()
     {

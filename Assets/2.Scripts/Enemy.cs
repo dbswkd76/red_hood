@@ -32,6 +32,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] GameObject melee;
     private bool touch=false;
     bool isAlive;
+    int Adamage;
+    Animal_life animal_Life;
     private void SetEnemyStat(int maxhp, int damage)
     {
         m_nowhp = maxhp;
@@ -57,6 +59,7 @@ public class Enemy : MonoBehaviour
     //        }
     //    }
     //}
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag.CompareTo("Player") == 0 || collision.gameObject.tag.CompareTo("PlayerAttack") == 0) 
@@ -69,6 +72,40 @@ public class Enemy : MonoBehaviour
                 EnemyDamaged(10);
             }
         }
+        //if (collision.gameObject.tag.CompareTo("our") == 0)
+        //{
+        //    if (m_nowhp > 0)
+        //    {
+        //        switch (collision.gameObject.name)
+        //        {
+        //            case "bearattack":
+        //                Adamage = 20;
+        //                break;
+        //            case "deerattack":
+        //                Adamage = 15;
+        //                break;
+        //            case "pantherattack":
+        //                Adamage = 17;
+        //                break;
+        //            case "eagleattack":
+        //                Adamage = 10;
+        //                break;
+        //            case "meerkatattack":
+        //                Adamage = 5;
+        //                break;
+        //            case "snakerattack":
+        //                Adamage = 8;
+        //                break;
+        //            case "ravenattack":
+        //                Adamage = 10;
+        //                break;
+        //            case "foxattack":
+        //                Adamage = 7;
+        //                break;
+        //        }
+        //        EnemyDamaged(Adamage);
+        //    }
+        //}
     }
     //private void OnCollisionStay2D(Collision2D collision)
     //{
@@ -210,6 +247,12 @@ public class Enemy : MonoBehaviour
                     playerdetect = true;
                     attack_ready();
                 }
+                if (hit.collider.CompareTag("our"))
+                {
+                    Debug.Log("Animal collide");
+                    playerdetect = true;
+                    attack_ready();
+                }
             }
             if (hit.collider == null)   //�տ� �ƹ��͵� ������
             {
@@ -246,6 +289,7 @@ public class Enemy : MonoBehaviour
             melee.SetActive(true);
             anim.SetBool("attack", true);
         }
+        animal_Life.Damage(m_damage);
         Invoke("OffAttack", 1.2f);
     }
     void OffAttack()
