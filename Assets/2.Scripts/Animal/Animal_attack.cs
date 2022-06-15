@@ -12,12 +12,12 @@ public class Animal_attack : MonoBehaviour
     {
         transform.Translate(Vector2.right * Time.deltaTime);
     }
-    private void OnTriggerEnter2D(Collider2D collider2D)
-    {
-        if (collider2D.gameObject.tag.CompareTo("Enemy") == 0)
-        {
-            EnemyLife.EnemyDamaged(damage);
-            Destroy(gameObject);
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D collider2D)
+    //{
+    //    if (collider2D.gameObject.tag.CompareTo("Enemy") == 0)
+    //    {
+    //        EnemyLife.EnemyDamaged(damage);
+    //        Destroy(gameObject);
+    //    }
+    //}
 }

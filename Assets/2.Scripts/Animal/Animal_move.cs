@@ -43,7 +43,6 @@ public class Animal_move : MonoBehaviour
             if (curtime <= 0)                
             {                    
                 Collider2D[] collider2D = Physics2D.OverlapBoxAll(pos.position, boxsize, 0);
-                balsacopy = Instantiate(balsa, gameObject.transform);
                 
                 foreach (Collider2D collider in collider2D)
                 {
@@ -53,8 +52,8 @@ public class Animal_move : MonoBehaviour
                     animator.SetBool("run", false);
                     attacksound.Play();
                     life.attack = true; // АјАн
-
                 }
+                balsacopy = Instantiate(balsa, gameObject.transform); 
             }            
             else
             {

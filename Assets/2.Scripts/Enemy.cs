@@ -34,6 +34,7 @@ public class Enemy : MonoBehaviour
     bool isAlive;
     int Adamage;
     Animal_life animal_Life;
+    Animal_attack animalattack;
     private void SetEnemyStat(int maxhp, int damage)
     {
         m_nowhp = maxhp;
@@ -106,6 +107,14 @@ public class Enemy : MonoBehaviour
         //        EnemyDamaged(Adamage);
         //    }
         //}
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("AnimalAttack"))
+        {
+            EnemyDamaged(animalattack.damage);
+        }
     }
     //private void OnCollisionStay2D(Collision2D collision)
     //{
