@@ -109,7 +109,7 @@ public class Enemy : MonoBehaviour
         //}
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerstay2D(Collider2D collision)
     {
         if (collision.CompareTag("AnimalAttack"))
         {
@@ -259,9 +259,16 @@ public class Enemy : MonoBehaviour
                 if (hit.collider.CompareTag("our"))
                 {
                     Debug.Log("Animal collide");
-                    playerdetect = true;
+                    //playerdetect = true;
                     attack_ready();
                 }
+                if (hit.collider.CompareTag("AnimalAttack"))
+                {
+                    Debug.Log("AnimalAttack");
+                    //playerdetect = true;
+                    EnemyDamaged(10);
+                }
+
             }
             if (hit.collider == null)   //�տ� �ƹ��͵� ������
             {
