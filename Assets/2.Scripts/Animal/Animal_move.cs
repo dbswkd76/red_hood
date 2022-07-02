@@ -12,11 +12,13 @@ public class Animal_move : MonoBehaviour
     public Transform pos;
     public AudioSource attacksound;
 
-    public float damage;    //공격력
-    public GameObject balsa;    //공격 발사체
+    public int damage;    //공격력
+    //public GameObject balsa;    //공격 발사체
 
     private float curtime;
     public float cooltime = 0.5f;
+
+    Enemy EnemyLife;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,8 +54,9 @@ public class Animal_move : MonoBehaviour
                     animator.SetBool("run", false);
                     attacksound.Play();
                     life.attack = true; // 공격
+                    EnemyLife.EnemyDamaged(damage);
                 }
-                balsacopy = Instantiate(balsa, gameObject.transform); 
+                //balsacopy = Instantiate(balsa, gameObject.transform); 
             }            
             else
             {
