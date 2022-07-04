@@ -61,6 +61,7 @@ public class dongmul : MonoBehaviour
         if (!setAS){
             setSkillButton.SetActive(true);
             setAnimalButton.SetActive(false);
+
             for (int i = 0; i<8; i++){
                 skill1[i].SetActive(false);
                 skill2[i].SetActive(false);
@@ -74,10 +75,10 @@ public class dongmul : MonoBehaviour
                         skill1[deckInfo.SkillArr[i]].SetActive(true);
                     }
                     else if (i==1){
-                        animal2[deckInfo.SkillArr[i]].SetActive(true);
+                        skill2[deckInfo.SkillArr[i]].SetActive(true);
                     }
                     else if (i==2){
-                        animal3[deckInfo.SkillArr[i]].SetActive(true);
+                        skill3[deckInfo.SkillArr[i]].SetActive(true);
                     }
                 }
             }
